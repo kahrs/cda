@@ -1,0 +1,3193 @@
+Terminals unused in grammar
+
+   BURIED
+   EXTERN
+   DCOUTPUT
+   DCFIELD
+   AEQN
+   AOUTPUT
+   CNDEQN
+   XNOR
+   GOTO
+   END
+   POP2
+   NOCASE
+   DNOCASE
+   DSWITCH
+   EQX
+   NEX
+   IF
+   SELECT
+   CASE
+   SWITCH
+   WHILE
+   PERM
+   NEG
+   GREY
+   FLONE
+   FRONE
+   ELIST
+   ASSIGN
+   DONTCARE
+
+
+State 158 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: s $end
+
+    1 s: /* empty */
+
+    2 $@1: /* empty */
+
+    3 s: $@1 prom s
+
+    4 prom: dcls eqns
+
+    5 dcls: /* empty */
+    6     | dcl dcls
+
+    7 $@2: /* empty */
+
+    8 eqns: EQNS $@2 elist
+
+    9 dcl: externs
+   10    | ttypes
+   11    | iters
+   12    | inputs
+   13    | boths
+   14    | burieds
+   15    | outputs
+   16    | fields
+   17    | used
+
+   18 $@3: /* empty */
+
+   19 externs: EXTERNS $@3 NAME chip
+
+   20 $@4: /* empty */
+
+   21 ttypes: TYPES $@4 NAME
+
+   22 $@5: /* empty */
+
+   23 iters: ITER $@5 NAME
+
+   24 chip: /* empty */
+   25     | NAME
+
+   26 $@6: /* empty */
+
+   27 inputs: INPUTS $@6 alist
+
+   28 $@7: /* empty */
+
+   29 boths: BOTHS $@7 alist
+
+   30 $@8: /* empty */
+
+   31 burieds: BURIEDS $@8 alist
+
+   32 $@9: /* empty */
+
+   33 outputs: OUTPUTS $@9 alist
+
+   34 alist: /* empty */
+   35      | assign alist
+
+   36 assign: NAME '=' NUMBER
+   37       | NAME PND
+   38       | NAME
+   39       | NAME '[' NUMBER ']'
+   40       | NAME '[' NUMBER ']' SUB
+   41       | NUMBER
+   42       | NAME ALT NUMBER
+
+   43 $@10: /* empty */
+
+   44 fields: FIELDS $@10 fdcls
+
+   45 fdcls: /* empty */
+   46      | fdcl fdcls
+
+   47 $@11: /* empty */
+
+   48 fdcl: NAME '=' $@11 flist
+
+   49 flist: /* empty */
+   50      | felem flist
+
+   51 felem: anypin
+
+   52 anypin: INPUT
+   53       | OUTPUT
+   54       | BOTH
+
+   55 $@12: /* empty */
+
+   56 used: USED $@12 ulist
+
+   57 ulist: /* empty */
+
+   58 $@13: /* empty */
+
+   59 ulist: NAME $@13 ulist
+
+   60 elist: /* empty */
+   61      | eqn elist
+
+   62 anyin: INPUT
+   63      | BOTH
+   64      | FIELD
+
+   65 anyout: OUTPUT
+   66       | BOTH
+   67       | FIELD
+
+   68 equop: '='
+   69      | COMEQU
+   70      | ADDEQU
+   71      | SUBEQU
+   72      | ALTEQU
+   73      | XOREQU
+   74      | MULEQU
+   75      | MODEQU
+   76      | PNDEQU
+
+   77 eqn: anyout equop eqnexpr
+   78    | anyout DC '=' eqnexpr
+   79    | NAME '=' e
+
+   80 eqnexpr: eqn
+   81        | e
+
+   82 e: anyin
+   83  | NAME
+   84  | EQN
+   85  | CEQN
+   86  | OUTPUT
+   87  | NUMBER
+   88  | SUB e
+   89  | NOT e
+   90  | COM e
+   91  | LT e
+   92  | GT e
+   93  | MOD e
+   94  | e CND e ALT e
+   95  | '(' e ')' CND e ALT e
+   96  | e NOT NUMBER NOT NUMBER
+   97  | e LOR e
+   98  | e LAND e
+   99  | e laddop e
+  100  | e AND e
+  101  | e compop e
+  102  | e addop e
+  103  | e mulop e
+  104  | e shiftop e
+  105  | e '{' swit '}'
+  106  | '(' e ')'
+  107  | error
+
+  108 laddop: OR
+  109       | XOR
+
+  110 compop: EQ
+  111       | NE
+  112       | LE
+  113       | GE
+  114       | LT
+  115       | GT
+
+  116 addop: ADD
+  117      | SUB
+
+  118 mulop: MUL
+  119      | DIV
+  120      | MOD
+
+  121 shiftop: LS
+  122        | RS
+
+  123 swit: selem
+  124     | swit ',' selem
+
+  125 selem: e
+  126      | ALT e
+  127      | e ALT e
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'(' (40) 95 106
+')' (41) 95 106
+',' (44) 124
+'=' (61) 36 48 68 78 79
+'[' (91) 39 40
+']' (93) 39 40
+'{' (123) 105
+'}' (125) 105
+error (256) 107
+INPUTS (258) 27
+OUTPUTS (259) 33
+EXTERNS (260) 19
+FIELDS (261) 44
+INPUT (262) 52 62
+OUTPUT (263) 53 65 86
+EQNS (264) 8
+EQN (265) 84
+TYPES (266) 21
+CEQN (267) 85
+BOTH (268) 54 63 66
+BOTHS (269) 29
+BURIEDS (270) 31
+BURIED (271)
+ITER (272) 23
+USED (273) 56
+NAME (274) 19 21 23 25 36 37 38 39 40 42 48 59 79 83
+EXTERN (275)
+FIELD (276) 64 67
+DCOUTPUT (277)
+DCFIELD (278)
+AEQN (279)
+AOUTPUT (280)
+CNDEQN (281)
+XNOR (282)
+GOTO (283)
+END (284)
+POP2 (285)
+NOCASE (286)
+DNOCASE (287)
+DSWITCH (288)
+EQX (289)
+NEX (290)
+IF (291)
+SELECT (292)
+CASE (293)
+SWITCH (294)
+WHILE (295)
+CND (296) 94 95
+ALT (297) 42 94 95 126 127
+PERM (298)
+NOT (299) 89 96
+COMEQU (300) 69
+ALTEQU (301) 72
+SUBEQU (302) 71
+ADDEQU (303) 70
+MULEQU (304) 74
+XOREQU (305) 73
+MODEQU (306) 75
+PNDEQU (307) 76
+DC (308) 78
+COM (309) 90
+NEG (310)
+GREY (311)
+FLONE (312)
+FRONE (313)
+ADD (314) 116
+AND (315) 100
+DIV (316) 119
+EQ (317) 110
+GE (318) 113
+GT (319) 92 115
+LAND (320) 98
+LE (321) 112
+LOR (322) 97
+LS (323) 121
+LT (324) 91 114
+MOD (325) 93 120
+MUL (326) 118
+NE (327) 111
+OR (328) 108
+RS (329) 122
+SUB (330) 40 88 117
+XOR (331) 109
+PND (332) 37
+ELIST (333)
+ASSIGN (334)
+DONTCARE (335)
+NUMBER (336) 36 39 40 41 42 87 96
+
+
+Nonterminals, with rules where they appear
+
+$accept (90)
+    on left: 0
+s (91)
+    on left: 1 3, on right: 0 3
+$@1 (92)
+    on left: 2, on right: 3
+prom (93)
+    on left: 4, on right: 3
+dcls (94)
+    on left: 5 6, on right: 4 6
+eqns (95)
+    on left: 8, on right: 4
+$@2 (96)
+    on left: 7, on right: 8
+dcl (97)
+    on left: 9 10 11 12 13 14 15 16 17, on right: 6
+externs (98)
+    on left: 19, on right: 9
+$@3 (99)
+    on left: 18, on right: 19
+ttypes (100)
+    on left: 21, on right: 10
+$@4 (101)
+    on left: 20, on right: 21
+iters (102)
+    on left: 23, on right: 11
+$@5 (103)
+    on left: 22, on right: 23
+chip (104)
+    on left: 24 25, on right: 19
+inputs (105)
+    on left: 27, on right: 12
+$@6 (106)
+    on left: 26, on right: 27
+boths (107)
+    on left: 29, on right: 13
+$@7 (108)
+    on left: 28, on right: 29
+burieds (109)
+    on left: 31, on right: 14
+$@8 (110)
+    on left: 30, on right: 31
+outputs (111)
+    on left: 33, on right: 15
+$@9 (112)
+    on left: 32, on right: 33
+alist (113)
+    on left: 34 35, on right: 27 29 31 33 35
+assign (114)
+    on left: 36 37 38 39 40 41 42, on right: 35
+fields (115)
+    on left: 44, on right: 16
+$@10 (116)
+    on left: 43, on right: 44
+fdcls (117)
+    on left: 45 46, on right: 44 46
+fdcl (118)
+    on left: 48, on right: 46
+$@11 (119)
+    on left: 47, on right: 48
+flist (120)
+    on left: 49 50, on right: 48 50
+felem (121)
+    on left: 51, on right: 50
+anypin (122)
+    on left: 52 53 54, on right: 51
+used (123)
+    on left: 56, on right: 17
+$@12 (124)
+    on left: 55, on right: 56
+ulist (125)
+    on left: 57 59, on right: 56 59
+$@13 (126)
+    on left: 58, on right: 59
+elist (127)
+    on left: 60 61, on right: 8 61
+anyin (128)
+    on left: 62 63 64, on right: 82
+anyout (129)
+    on left: 65 66 67, on right: 77 78
+equop (130)
+    on left: 68 69 70 71 72 73 74 75 76, on right: 77
+eqn (131)
+    on left: 77 78 79, on right: 61 80
+eqnexpr (132)
+    on left: 80 81, on right: 77 78
+e (133)
+    on left: 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
+    100 101 102 103 104 105 106 107, on right: 79 81 88 89 90 91 92
+    93 94 95 96 97 98 99 100 101 102 103 104 105 106 125 126 127
+laddop (134)
+    on left: 108 109, on right: 99
+compop (135)
+    on left: 110 111 112 113 114 115, on right: 101
+addop (136)
+    on left: 116 117, on right: 102
+mulop (137)
+    on left: 118 119 120, on right: 103
+shiftop (138)
+    on left: 121 122, on right: 104
+swit (139)
+    on left: 123 124, on right: 105 124
+selem (140)
+    on left: 125 126 127, on right: 123 124
+
+
+state 0
+
+    0 $accept: . s $end
+
+    $end      reduce using rule 1 (s)
+    $default  reduce using rule 2 ($@1)
+
+    s    go to state 1
+    $@1  go to state 2
+
+
+state 1
+
+    0 $accept: s . $end
+
+    $end  shift, and go to state 3
+
+
+state 2
+
+    3 s: $@1 . prom s
+
+    INPUTS   shift, and go to state 4
+    OUTPUTS  shift, and go to state 5
+    EXTERNS  shift, and go to state 6
+    FIELDS   shift, and go to state 7
+    TYPES    shift, and go to state 8
+    BOTHS    shift, and go to state 9
+    BURIEDS  shift, and go to state 10
+    ITER     shift, and go to state 11
+    USED     shift, and go to state 12
+
+    $default  reduce using rule 5 (dcls)
+
+    prom     go to state 13
+    dcls     go to state 14
+    dcl      go to state 15
+    externs  go to state 16
+    ttypes   go to state 17
+    iters    go to state 18
+    inputs   go to state 19
+    boths    go to state 20
+    burieds  go to state 21
+    outputs  go to state 22
+    fields   go to state 23
+    used     go to state 24
+
+
+state 3
+
+    0 $accept: s $end .
+
+    $default  accept
+
+
+state 4
+
+   27 inputs: INPUTS . $@6 alist
+
+    $default  reduce using rule 26 ($@6)
+
+    $@6  go to state 25
+
+
+state 5
+
+   33 outputs: OUTPUTS . $@9 alist
+
+    $default  reduce using rule 32 ($@9)
+
+    $@9  go to state 26
+
+
+state 6
+
+   19 externs: EXTERNS . $@3 NAME chip
+
+    $default  reduce using rule 18 ($@3)
+
+    $@3  go to state 27
+
+
+state 7
+
+   44 fields: FIELDS . $@10 fdcls
+
+    $default  reduce using rule 43 ($@10)
+
+    $@10  go to state 28
+
+
+state 8
+
+   21 ttypes: TYPES . $@4 NAME
+
+    $default  reduce using rule 20 ($@4)
+
+    $@4  go to state 29
+
+
+state 9
+
+   29 boths: BOTHS . $@7 alist
+
+    $default  reduce using rule 28 ($@7)
+
+    $@7  go to state 30
+
+
+state 10
+
+   31 burieds: BURIEDS . $@8 alist
+
+    $default  reduce using rule 30 ($@8)
+
+    $@8  go to state 31
+
+
+state 11
+
+   23 iters: ITER . $@5 NAME
+
+    $default  reduce using rule 22 ($@5)
+
+    $@5  go to state 32
+
+
+state 12
+
+   56 used: USED . $@12 ulist
+
+    $default  reduce using rule 55 ($@12)
+
+    $@12  go to state 33
+
+
+state 13
+
+    3 s: $@1 prom . s
+
+    $end      reduce using rule 1 (s)
+    $default  reduce using rule 2 ($@1)
+
+    s    go to state 34
+    $@1  go to state 2
+
+
+state 14
+
+    4 prom: dcls . eqns
+
+    EQNS  shift, and go to state 35
+
+    eqns  go to state 36
+
+
+state 15
+
+    6 dcls: dcl . dcls
+
+    INPUTS   shift, and go to state 4
+    OUTPUTS  shift, and go to state 5
+    EXTERNS  shift, and go to state 6
+    FIELDS   shift, and go to state 7
+    TYPES    shift, and go to state 8
+    BOTHS    shift, and go to state 9
+    BURIEDS  shift, and go to state 10
+    ITER     shift, and go to state 11
+    USED     shift, and go to state 12
+
+    $default  reduce using rule 5 (dcls)
+
+    dcls     go to state 37
+    dcl      go to state 15
+    externs  go to state 16
+    ttypes   go to state 17
+    iters    go to state 18
+    inputs   go to state 19
+    boths    go to state 20
+    burieds  go to state 21
+    outputs  go to state 22
+    fields   go to state 23
+    used     go to state 24
+
+
+state 16
+
+    9 dcl: externs .
+
+    $default  reduce using rule 9 (dcl)
+
+
+state 17
+
+   10 dcl: ttypes .
+
+    $default  reduce using rule 10 (dcl)
+
+
+state 18
+
+   11 dcl: iters .
+
+    $default  reduce using rule 11 (dcl)
+
+
+state 19
+
+   12 dcl: inputs .
+
+    $default  reduce using rule 12 (dcl)
+
+
+state 20
+
+   13 dcl: boths .
+
+    $default  reduce using rule 13 (dcl)
+
+
+state 21
+
+   14 dcl: burieds .
+
+    $default  reduce using rule 14 (dcl)
+
+
+state 22
+
+   15 dcl: outputs .
+
+    $default  reduce using rule 15 (dcl)
+
+
+state 23
+
+   16 dcl: fields .
+
+    $default  reduce using rule 16 (dcl)
+
+
+state 24
+
+   17 dcl: used .
+
+    $default  reduce using rule 17 (dcl)
+
+
+state 25
+
+   27 inputs: INPUTS $@6 . alist
+
+    NAME    shift, and go to state 38
+    NUMBER  shift, and go to state 39
+
+    $default  reduce using rule 34 (alist)
+
+    alist   go to state 40
+    assign  go to state 41
+
+
+state 26
+
+   33 outputs: OUTPUTS $@9 . alist
+
+    NAME    shift, and go to state 38
+    NUMBER  shift, and go to state 39
+
+    $default  reduce using rule 34 (alist)
+
+    alist   go to state 42
+    assign  go to state 41
+
+
+state 27
+
+   19 externs: EXTERNS $@3 . NAME chip
+
+    NAME  shift, and go to state 43
+
+
+state 28
+
+   44 fields: FIELDS $@10 . fdcls
+
+    NAME  shift, and go to state 44
+
+    $default  reduce using rule 45 (fdcls)
+
+    fdcls  go to state 45
+    fdcl   go to state 46
+
+
+state 29
+
+   21 ttypes: TYPES $@4 . NAME
+
+    NAME  shift, and go to state 47
+
+
+state 30
+
+   29 boths: BOTHS $@7 . alist
+
+    NAME    shift, and go to state 38
+    NUMBER  shift, and go to state 39
+
+    $default  reduce using rule 34 (alist)
+
+    alist   go to state 48
+    assign  go to state 41
+
+
+state 31
+
+   31 burieds: BURIEDS $@8 . alist
+
+    NAME    shift, and go to state 38
+    NUMBER  shift, and go to state 39
+
+    $default  reduce using rule 34 (alist)
+
+    alist   go to state 49
+    assign  go to state 41
+
+
+state 32
+
+   23 iters: ITER $@5 . NAME
+
+    NAME  shift, and go to state 50
+
+
+state 33
+
+   56 used: USED $@12 . ulist
+
+    NAME  shift, and go to state 51
+
+    $default  reduce using rule 57 (ulist)
+
+    ulist  go to state 52
+
+
+state 34
+
+    3 s: $@1 prom s .
+
+    $default  reduce using rule 3 (s)
+
+
+state 35
+
+    8 eqns: EQNS . $@2 elist
+
+    $default  reduce using rule 7 ($@2)
+
+    $@2  go to state 53
+
+
+state 36
+
+    4 prom: dcls eqns .
+
+    $default  reduce using rule 4 (prom)
+
+
+state 37
+
+    6 dcls: dcl dcls .
+
+    $default  reduce using rule 6 (dcls)
+
+
+state 38
+
+   36 assign: NAME . '=' NUMBER
+   37       | NAME . PND
+   38       | NAME .
+   39       | NAME . '[' NUMBER ']'
+   40       | NAME . '[' NUMBER ']' SUB
+   42       | NAME . ALT NUMBER
+
+    ALT  shift, and go to state 54
+    '='  shift, and go to state 55
+    PND  shift, and go to state 56
+    '['  shift, and go to state 57
+
+    $default  reduce using rule 38 (assign)
+
+
+state 39
+
+   41 assign: NUMBER .
+
+    $default  reduce using rule 41 (assign)
+
+
+state 40
+
+   27 inputs: INPUTS $@6 alist .
+
+    $default  reduce using rule 27 (inputs)
+
+
+state 41
+
+   35 alist: assign . alist
+
+    NAME    shift, and go to state 38
+    NUMBER  shift, and go to state 39
+
+    $default  reduce using rule 34 (alist)
+
+    alist   go to state 58
+    assign  go to state 41
+
+
+state 42
+
+   33 outputs: OUTPUTS $@9 alist .
+
+    $default  reduce using rule 33 (outputs)
+
+
+state 43
+
+   19 externs: EXTERNS $@3 NAME . chip
+
+    NAME  shift, and go to state 59
+
+    $default  reduce using rule 24 (chip)
+
+    chip  go to state 60
+
+
+state 44
+
+   48 fdcl: NAME . '=' $@11 flist
+
+    '='  shift, and go to state 61
+
+
+state 45
+
+   44 fields: FIELDS $@10 fdcls .
+
+    $default  reduce using rule 44 (fields)
+
+
+state 46
+
+   46 fdcls: fdcl . fdcls
+
+    NAME  shift, and go to state 44
+
+    $default  reduce using rule 45 (fdcls)
+
+    fdcls  go to state 62
+    fdcl   go to state 46
+
+
+state 47
+
+   21 ttypes: TYPES $@4 NAME .
+
+    $default  reduce using rule 21 (ttypes)
+
+
+state 48
+
+   29 boths: BOTHS $@7 alist .
+
+    $default  reduce using rule 29 (boths)
+
+
+state 49
+
+   31 burieds: BURIEDS $@8 alist .
+
+    $default  reduce using rule 31 (burieds)
+
+
+state 50
+
+   23 iters: ITER $@5 NAME .
+
+    $default  reduce using rule 23 (iters)
+
+
+state 51
+
+   59 ulist: NAME . $@13 ulist
+
+    $default  reduce using rule 58 ($@13)
+
+    $@13  go to state 63
+
+
+state 52
+
+   56 used: USED $@12 ulist .
+
+    $default  reduce using rule 56 (used)
+
+
+state 53
+
+    8 eqns: EQNS $@2 . elist
+
+    OUTPUT  shift, and go to state 64
+    BOTH    shift, and go to state 65
+    NAME    shift, and go to state 66
+    FIELD   shift, and go to state 67
+
+    $default  reduce using rule 60 (elist)
+
+    elist   go to state 68
+    anyout  go to state 69
+    eqn     go to state 70
+
+
+state 54
+
+   42 assign: NAME ALT . NUMBER
+
+    NUMBER  shift, and go to state 71
+
+
+state 55
+
+   36 assign: NAME '=' . NUMBER
+
+    NUMBER  shift, and go to state 72
+
+
+state 56
+
+   37 assign: NAME PND .
+
+    $default  reduce using rule 37 (assign)
+
+
+state 57
+
+   39 assign: NAME '[' . NUMBER ']'
+   40       | NAME '[' . NUMBER ']' SUB
+
+    NUMBER  shift, and go to state 73
+
+
+state 58
+
+   35 alist: assign alist .
+
+    $default  reduce using rule 35 (alist)
+
+
+state 59
+
+   25 chip: NAME .
+
+    $default  reduce using rule 25 (chip)
+
+
+state 60
+
+   19 externs: EXTERNS $@3 NAME chip .
+
+    $default  reduce using rule 19 (externs)
+
+
+state 61
+
+   48 fdcl: NAME '=' . $@11 flist
+
+    $default  reduce using rule 47 ($@11)
+
+    $@11  go to state 74
+
+
+state 62
+
+   46 fdcls: fdcl fdcls .
+
+    $default  reduce using rule 46 (fdcls)
+
+
+state 63
+
+   59 ulist: NAME $@13 . ulist
+
+    NAME  shift, and go to state 51
+
+    $default  reduce using rule 57 (ulist)
+
+    ulist  go to state 75
+
+
+state 64
+
+   65 anyout: OUTPUT .
+
+    $default  reduce using rule 65 (anyout)
+
+
+state 65
+
+   66 anyout: BOTH .
+
+    $default  reduce using rule 66 (anyout)
+
+
+state 66
+
+   79 eqn: NAME . '=' e
+
+    '='  shift, and go to state 76
+
+
+state 67
+
+   67 anyout: FIELD .
+
+    $default  reduce using rule 67 (anyout)
+
+
+state 68
+
+    8 eqns: EQNS $@2 elist .
+
+    $default  reduce using rule 8 (eqns)
+
+
+state 69
+
+   77 eqn: anyout . equop eqnexpr
+   78    | anyout . DC '=' eqnexpr
+
+    '='     shift, and go to state 77
+    COMEQU  shift, and go to state 78
+    ALTEQU  shift, and go to state 79
+    SUBEQU  shift, and go to state 80
+    ADDEQU  shift, and go to state 81
+    MULEQU  shift, and go to state 82
+    XOREQU  shift, and go to state 83
+    MODEQU  shift, and go to state 84
+    PNDEQU  shift, and go to state 85
+    DC      shift, and go to state 86
+
+    equop  go to state 87
+
+
+state 70
+
+   61 elist: eqn . elist
+
+    OUTPUT  shift, and go to state 64
+    BOTH    shift, and go to state 65
+    NAME    shift, and go to state 66
+    FIELD   shift, and go to state 67
+
+    $default  reduce using rule 60 (elist)
+
+    elist   go to state 88
+    anyout  go to state 69
+    eqn     go to state 70
+
+
+state 71
+
+   42 assign: NAME ALT NUMBER .
+
+    $default  reduce using rule 42 (assign)
+
+
+state 72
+
+   36 assign: NAME '=' NUMBER .
+
+    $default  reduce using rule 36 (assign)
+
+
+state 73
+
+   39 assign: NAME '[' NUMBER . ']'
+   40       | NAME '[' NUMBER . ']' SUB
+
+    ']'  shift, and go to state 89
+
+
+state 74
+
+   48 fdcl: NAME '=' $@11 . flist
+
+    INPUT   shift, and go to state 90
+    OUTPUT  shift, and go to state 91
+    BOTH    shift, and go to state 92
+
+    $default  reduce using rule 49 (flist)
+
+    flist   go to state 93
+    felem   go to state 94
+    anypin  go to state 95
+
+
+state 75
+
+   59 ulist: NAME $@13 ulist .
+
+    $default  reduce using rule 59 (ulist)
+
+
+state 76
+
+   79 eqn: NAME '=' . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 113
+
+
+state 77
+
+   68 equop: '=' .
+
+    $default  reduce using rule 68 (equop)
+
+
+state 78
+
+   69 equop: COMEQU .
+
+    $default  reduce using rule 69 (equop)
+
+
+state 79
+
+   72 equop: ALTEQU .
+
+    $default  reduce using rule 72 (equop)
+
+
+state 80
+
+   71 equop: SUBEQU .
+
+    $default  reduce using rule 71 (equop)
+
+
+state 81
+
+   70 equop: ADDEQU .
+
+    $default  reduce using rule 70 (equop)
+
+
+state 82
+
+   74 equop: MULEQU .
+
+    $default  reduce using rule 74 (equop)
+
+
+state 83
+
+   73 equop: XOREQU .
+
+    $default  reduce using rule 73 (equop)
+
+
+state 84
+
+   75 equop: MODEQU .
+
+    $default  reduce using rule 75 (equop)
+
+
+state 85
+
+   76 equop: PNDEQU .
+
+    $default  reduce using rule 76 (equop)
+
+
+state 86
+
+   78 eqn: anyout DC . '=' eqnexpr
+
+    '='  shift, and go to state 114
+
+
+state 87
+
+   77 eqn: anyout equop . eqnexpr
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 115
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 116
+    NAME    shift, and go to state 117
+    FIELD   shift, and go to state 118
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin    go to state 112
+    anyout   go to state 69
+    eqn      go to state 119
+    eqnexpr  go to state 120
+    e        go to state 121
+
+
+state 88
+
+   61 elist: eqn elist .
+
+    $default  reduce using rule 61 (elist)
+
+
+state 89
+
+   39 assign: NAME '[' NUMBER ']' .
+   40       | NAME '[' NUMBER ']' . SUB
+
+    SUB  shift, and go to state 122
+
+    $default  reduce using rule 39 (assign)
+
+
+state 90
+
+   52 anypin: INPUT .
+
+    $default  reduce using rule 52 (anypin)
+
+
+state 91
+
+   53 anypin: OUTPUT .
+
+    $default  reduce using rule 53 (anypin)
+
+
+state 92
+
+   54 anypin: BOTH .
+
+    $default  reduce using rule 54 (anypin)
+
+
+state 93
+
+   48 fdcl: NAME '=' $@11 flist .
+
+    $default  reduce using rule 48 (fdcl)
+
+
+state 94
+
+   50 flist: felem . flist
+
+    INPUT   shift, and go to state 90
+    OUTPUT  shift, and go to state 91
+    BOTH    shift, and go to state 92
+
+    $default  reduce using rule 49 (flist)
+
+    flist   go to state 123
+    felem   go to state 94
+    anypin  go to state 95
+
+
+state 95
+
+   51 felem: anypin .
+
+    $default  reduce using rule 51 (felem)
+
+
+state 96
+
+  107 e: error .
+
+    $default  reduce using rule 107 (e)
+
+
+state 97
+
+   62 anyin: INPUT .
+
+    $default  reduce using rule 62 (anyin)
+
+
+state 98
+
+   86 e: OUTPUT .
+
+    $default  reduce using rule 86 (e)
+
+
+state 99
+
+   84 e: EQN .
+
+    $default  reduce using rule 84 (e)
+
+
+state 100
+
+   85 e: CEQN .
+
+    $default  reduce using rule 85 (e)
+
+
+state 101
+
+   63 anyin: BOTH .
+
+    $default  reduce using rule 63 (anyin)
+
+
+state 102
+
+   83 e: NAME .
+
+    $default  reduce using rule 83 (e)
+
+
+state 103
+
+   64 anyin: FIELD .
+
+    $default  reduce using rule 64 (anyin)
+
+
+state 104
+
+   89 e: NOT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 124
+
+
+state 105
+
+   90 e: COM . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 125
+
+
+state 106
+
+   92 e: GT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 126
+
+
+state 107
+
+   91 e: LT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 127
+
+
+state 108
+
+   93 e: MOD . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 128
+
+
+state 109
+
+   88 e: SUB . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 129
+
+
+state 110
+
+   87 e: NUMBER .
+
+    $default  reduce using rule 87 (e)
+
+
+state 111
+
+   95 e: '(' . e ')' CND e ALT e
+  106  | '(' . e ')'
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 130
+
+
+state 112
+
+   82 e: anyin .
+
+    $default  reduce using rule 82 (e)
+
+
+state 113
+
+   79 eqn: NAME '=' e .
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 79 (eqn)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 114
+
+   78 eqn: anyout DC '=' . eqnexpr
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 115
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 116
+    NAME    shift, and go to state 117
+    FIELD   shift, and go to state 118
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin    go to state 112
+    anyout   go to state 69
+    eqn      go to state 119
+    eqnexpr  go to state 157
+    e        go to state 121
+
+
+state 115
+
+   65 anyout: OUTPUT .
+   86 e: OUTPUT .
+
+    '='       reduce using rule 65 (anyout)
+    COMEQU    reduce using rule 65 (anyout)
+    ALTEQU    reduce using rule 65 (anyout)
+    SUBEQU    reduce using rule 65 (anyout)
+    ADDEQU    reduce using rule 65 (anyout)
+    MULEQU    reduce using rule 65 (anyout)
+    XOREQU    reduce using rule 65 (anyout)
+    MODEQU    reduce using rule 65 (anyout)
+    PNDEQU    reduce using rule 65 (anyout)
+    DC        reduce using rule 65 (anyout)
+    $default  reduce using rule 86 (e)
+
+
+state 116
+
+   63 anyin: BOTH .
+   66 anyout: BOTH .
+
+    '='       reduce using rule 66 (anyout)
+    COMEQU    reduce using rule 66 (anyout)
+    ALTEQU    reduce using rule 66 (anyout)
+    SUBEQU    reduce using rule 66 (anyout)
+    ADDEQU    reduce using rule 66 (anyout)
+    MULEQU    reduce using rule 66 (anyout)
+    XOREQU    reduce using rule 66 (anyout)
+    MODEQU    reduce using rule 66 (anyout)
+    PNDEQU    reduce using rule 66 (anyout)
+    DC        reduce using rule 66 (anyout)
+    $default  reduce using rule 63 (anyin)
+
+
+state 117
+
+   79 eqn: NAME . '=' e
+   83 e: NAME .
+
+    '='  shift, and go to state 76
+
+    $default  reduce using rule 83 (e)
+
+
+state 118
+
+   64 anyin: FIELD .
+   67 anyout: FIELD .
+
+    '='       reduce using rule 67 (anyout)
+    COMEQU    reduce using rule 67 (anyout)
+    ALTEQU    reduce using rule 67 (anyout)
+    SUBEQU    reduce using rule 67 (anyout)
+    ADDEQU    reduce using rule 67 (anyout)
+    MULEQU    reduce using rule 67 (anyout)
+    XOREQU    reduce using rule 67 (anyout)
+    MODEQU    reduce using rule 67 (anyout)
+    PNDEQU    reduce using rule 67 (anyout)
+    DC        reduce using rule 67 (anyout)
+    $default  reduce using rule 64 (anyin)
+
+
+state 119
+
+   80 eqnexpr: eqn .
+
+    $default  reduce using rule 80 (eqnexpr)
+
+
+state 120
+
+   77 eqn: anyout equop eqnexpr .
+
+    $default  reduce using rule 77 (eqn)
+
+
+state 121
+
+   81 eqnexpr: e .
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 81 (eqnexpr)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 122
+
+   40 assign: NAME '[' NUMBER ']' SUB .
+
+    $default  reduce using rule 40 (assign)
+
+
+state 123
+
+   50 flist: felem flist .
+
+    $default  reduce using rule 50 (flist)
+
+
+state 124
+
+   89 e: NOT e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+
+    $default  reduce using rule 89 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 125
+
+   90 e: COM e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+
+    $default  reduce using rule 90 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 126
+
+   92 e: GT e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    DIV  shift, and go to state 135
+    LS   shift, and go to state 142
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+
+    $default  reduce using rule 92 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 127
+
+   91 e: LT e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    DIV  shift, and go to state 135
+    LS   shift, and go to state 142
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+
+    $default  reduce using rule 91 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 128
+
+   93 e: MOD e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    LS   shift, and go to state 142
+    RS   shift, and go to state 148
+
+    $default  reduce using rule 93 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 129
+
+   88 e: SUB e .
+   94  | e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    DIV  shift, and go to state 135
+    LS   shift, and go to state 142
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    RS   shift, and go to state 148
+
+    $default  reduce using rule 88 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 130
+
+   94 e: e . CND e ALT e
+   95  | '(' e . ')' CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+  106  | '(' e . ')'
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+    ')'   shift, and go to state 158
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 131
+
+   94 e: e CND . e ALT e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 159
+
+
+state 132
+
+   96 e: e NOT . NUMBER NOT NUMBER
+
+    NUMBER  shift, and go to state 160
+
+
+state 133
+
+  116 addop: ADD .
+
+    $default  reduce using rule 116 (addop)
+
+
+state 134
+
+  100 e: e AND . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 161
+
+
+state 135
+
+  119 mulop: DIV .
+
+    $default  reduce using rule 119 (mulop)
+
+
+state 136
+
+  110 compop: EQ .
+
+    $default  reduce using rule 110 (compop)
+
+
+state 137
+
+  113 compop: GE .
+
+    $default  reduce using rule 113 (compop)
+
+
+state 138
+
+  115 compop: GT .
+
+    $default  reduce using rule 115 (compop)
+
+
+state 139
+
+   98 e: e LAND . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 162
+
+
+state 140
+
+  112 compop: LE .
+
+    $default  reduce using rule 112 (compop)
+
+
+state 141
+
+   97 e: e LOR . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 163
+
+
+state 142
+
+  121 shiftop: LS .
+
+    $default  reduce using rule 121 (shiftop)
+
+
+state 143
+
+  114 compop: LT .
+
+    $default  reduce using rule 114 (compop)
+
+
+state 144
+
+  120 mulop: MOD .
+
+    $default  reduce using rule 120 (mulop)
+
+
+state 145
+
+  118 mulop: MUL .
+
+    $default  reduce using rule 118 (mulop)
+
+
+state 146
+
+  111 compop: NE .
+
+    $default  reduce using rule 111 (compop)
+
+
+state 147
+
+  108 laddop: OR .
+
+    $default  reduce using rule 108 (laddop)
+
+
+state 148
+
+  122 shiftop: RS .
+
+    $default  reduce using rule 122 (shiftop)
+
+
+state 149
+
+  117 addop: SUB .
+
+    $default  reduce using rule 117 (addop)
+
+
+state 150
+
+  109 laddop: XOR .
+
+    $default  reduce using rule 109 (laddop)
+
+
+state 151
+
+  105 e: e '{' . swit '}'
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    ALT     shift, and go to state 164
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 165
+    swit   go to state 166
+    selem  go to state 167
+
+
+state 152
+
+   99 e: e laddop . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 168
+
+
+state 153
+
+  101 e: e compop . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 169
+
+
+state 154
+
+  102 e: e addop . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 170
+
+
+state 155
+
+  103 e: e mulop . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 171
+
+
+state 156
+
+  104 e: e shiftop . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 172
+
+
+state 157
+
+   78 eqn: anyout DC '=' eqnexpr .
+
+    $default  reduce using rule 78 (eqn)
+
+
+state 158
+
+   95 e: '(' e ')' . CND e ALT e
+  106  | '(' e ')' .
+
+    CND  shift, and go to state 173
+
+    CND       [reduce using rule 106 (e)]
+    $default  reduce using rule 106 (e)
+
+
+state 159
+
+   94 e: e . CND e ALT e
+   94  | e CND e . ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    ALT   shift, and go to state 174
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 160
+
+   96 e: e NOT NUMBER . NOT NUMBER
+
+    NOT  shift, and go to state 175
+
+
+state 161
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  100  | e AND e .
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    DIV  shift, and go to state 135
+    EQ   shift, and go to state 136
+    GE   shift, and go to state 137
+    GT   shift, and go to state 138
+    LE   shift, and go to state 140
+    LS   shift, and go to state 142
+    LT   shift, and go to state 143
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    NE   shift, and go to state 146
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+
+    $default  reduce using rule 100 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 162
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   98  | e LAND e .
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    AND  shift, and go to state 134
+    DIV  shift, and go to state 135
+    EQ   shift, and go to state 136
+    GE   shift, and go to state 137
+    GT   shift, and go to state 138
+    LE   shift, and go to state 140
+    LS   shift, and go to state 142
+    LT   shift, and go to state 143
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    NE   shift, and go to state 146
+    OR   shift, and go to state 147
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+    XOR  shift, and go to state 150
+
+    $default  reduce using rule 98 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 163
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   97  | e LOR e .
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+
+    $default  reduce using rule 97 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 164
+
+  126 selem: ALT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 176
+
+
+state 165
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+  125 selem: e .
+  127      | e . ALT e
+
+    CND   shift, and go to state 131
+    ALT   shift, and go to state 177
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 125 (selem)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 166
+
+  105 e: e '{' swit . '}'
+  124 swit: swit . ',' selem
+
+    '}'  shift, and go to state 178
+    ','  shift, and go to state 179
+
+
+state 167
+
+  123 swit: selem .
+
+    $default  reduce using rule 123 (swit)
+
+
+state 168
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+   99  | e laddop e .
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    AND  shift, and go to state 134
+    DIV  shift, and go to state 135
+    EQ   shift, and go to state 136
+    GE   shift, and go to state 137
+    GT   shift, and go to state 138
+    LE   shift, and go to state 140
+    LS   shift, and go to state 142
+    LT   shift, and go to state 143
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    NE   shift, and go to state 146
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+
+    $default  reduce using rule 99 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 169
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  101  | e compop e .
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    ADD  shift, and go to state 133
+    DIV  shift, and go to state 135
+    LS   shift, and go to state 142
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    RS   shift, and go to state 148
+    SUB  shift, and go to state 149
+
+    $default  reduce using rule 101 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 170
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  102  | e addop e .
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    DIV  shift, and go to state 135
+    LS   shift, and go to state 142
+    MOD  shift, and go to state 144
+    MUL  shift, and go to state 145
+    RS   shift, and go to state 148
+
+    $default  reduce using rule 102 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 171
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  103  | e mulop e .
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+    LS   shift, and go to state 142
+    RS   shift, and go to state 148
+
+    $default  reduce using rule 103 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 172
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  104  | e shiftop e .
+  105  | e . '{' swit '}'
+
+    NOT  shift, and go to state 132
+
+    $default  reduce using rule 104 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 173
+
+   95 e: '(' e ')' CND . e ALT e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 180
+
+
+state 174
+
+   94 e: e CND e ALT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 181
+
+
+state 175
+
+   96 e: e NOT NUMBER NOT . NUMBER
+
+    NUMBER  shift, and go to state 182
+
+
+state 176
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+  126 selem: ALT e .
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 126 (selem)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 177
+
+  127 selem: e ALT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 183
+
+
+state 178
+
+  105 e: e '{' swit '}' .
+
+    $default  reduce using rule 105 (e)
+
+
+state 179
+
+  124 swit: swit ',' . selem
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    ALT     shift, and go to state 164
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 165
+    selem  go to state 184
+
+
+state 180
+
+   94 e: e . CND e ALT e
+   95  | '(' e ')' CND e . ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    ALT   shift, and go to state 185
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 181
+
+   94 e: e . CND e ALT e
+   94  | e CND e ALT e .
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 94 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 182
+
+   96 e: e NOT NUMBER NOT NUMBER .
+
+    $default  reduce using rule 96 (e)
+
+
+state 183
+
+   94 e: e . CND e ALT e
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+  127 selem: e ALT e .
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 127 (selem)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156
+
+
+state 184
+
+  124 swit: swit ',' selem .
+
+    $default  reduce using rule 124 (swit)
+
+
+state 185
+
+   95 e: '(' e ')' CND e ALT . e
+
+    error   shift, and go to state 96
+    INPUT   shift, and go to state 97
+    OUTPUT  shift, and go to state 98
+    EQN     shift, and go to state 99
+    CEQN    shift, and go to state 100
+    BOTH    shift, and go to state 101
+    NAME    shift, and go to state 102
+    FIELD   shift, and go to state 103
+    NOT     shift, and go to state 104
+    COM     shift, and go to state 105
+    GT      shift, and go to state 106
+    LT      shift, and go to state 107
+    MOD     shift, and go to state 108
+    SUB     shift, and go to state 109
+    NUMBER  shift, and go to state 110
+    '('     shift, and go to state 111
+
+    anyin  go to state 112
+    e      go to state 186
+
+
+state 186
+
+   94 e: e . CND e ALT e
+   95  | '(' e ')' CND e ALT e .
+   96  | e . NOT NUMBER NOT NUMBER
+   97  | e . LOR e
+   98  | e . LAND e
+   99  | e . laddop e
+  100  | e . AND e
+  101  | e . compop e
+  102  | e . addop e
+  103  | e . mulop e
+  104  | e . shiftop e
+  105  | e . '{' swit '}'
+
+    CND   shift, and go to state 131
+    NOT   shift, and go to state 132
+    ADD   shift, and go to state 133
+    AND   shift, and go to state 134
+    DIV   shift, and go to state 135
+    EQ    shift, and go to state 136
+    GE    shift, and go to state 137
+    GT    shift, and go to state 138
+    LAND  shift, and go to state 139
+    LE    shift, and go to state 140
+    LOR   shift, and go to state 141
+    LS    shift, and go to state 142
+    LT    shift, and go to state 143
+    MOD   shift, and go to state 144
+    MUL   shift, and go to state 145
+    NE    shift, and go to state 146
+    OR    shift, and go to state 147
+    RS    shift, and go to state 148
+    SUB   shift, and go to state 149
+    XOR   shift, and go to state 150
+    '{'   shift, and go to state 151
+
+    $default  reduce using rule 95 (e)
+
+    laddop   go to state 152
+    compop   go to state 153
+    addop    go to state 154
+    mulop    go to state 155
+    shiftop  go to state 156

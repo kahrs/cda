@@ -1,0 +1,33 @@
+84.awk - Produces fizz pin file for PLCC84 
+adil - Calls adl.awk - forgotten
+adl.awk - See above
+annotate - combines pin file with graw .g for schematics
+boardswap.awk - swaps X and Y (i.e., rotate)
+gerber - Gerber prefix, historical
+getpkgs - Extract packages from library
+ics - searches stock in different places - historical
+ipf - Calls ipf.awk - forgotten
+ipf.awk - See above
+lca2pin - From lca to pin number scheme (still in plan9)
+lookup - lookup chips (still in plan9 shell)
+mkpkgs - make package file for fizz
+mkpos - another unknown script
+namestrip - another unknown script
+notes - extract from urom.notes file (still in plan9 rc shell)
+pack.awk - package counter
+pga - generates pin file for PGA
+pga132a - 
+pga132x - 
+pins - 
+shorten.awk - 
+signals.awk - 
+thermal - 
+topcb - generates output for linux pcb 
+tweeze - 
+wires.awk - 
+wlist.awk - 
+wrclip - 
+xnf.awk - 
+xnffrom - 
+xnfpins - 
+xnfto - 

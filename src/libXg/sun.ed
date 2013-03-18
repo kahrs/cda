@@ -1,0 +1,56 @@
+#!/bin/sh
+
+echo "patching sam/unix.c"
+ed sam/unix.c << EOF
+/	p.*=.*realloc/c
+	p = p ? realloc(p, n) : malloc(n);
+.
+w
+q
+EOF
+echo "patching samterm/flayer.c"
+ed samterm/flayer.c << EOF
+/llist = realloc/c
+			llist = llist ? realloc(llist, nlalloc*sizeof(Flayer**)) : malloc(nlalloc*sizeof(Flayer**));
+.
+w
+q
+EOF
+echo "patching samterm/mesg.c"
+ed samterm/mesg.c << EOF
+/s1 = realloc/c
+		s1 = s1 ? realloc(s1, n+1) : malloc(n+1);
+.
+w
+q
+EOF
+echo "patching libframe/frbox.c"
+ed libframe/frbox.c << EOF
+/.*f->box.*=.*realloc/c
+	f->box = f->box ? realloc(f->box, f->nalloc*sizeof(Frbox)) : malloc(f->nalloc*sizeof(Frbox));
+.
+w
+q
+EOF
+echo "patching libframe/frinsert.c"
+ed libframe/frinsert.c << EOF
+/[	 ]*pts.*=.*realloc/c
+			pts = pts ? realloc(pts, (npts+DELTA)*sizeof(pts[0])) : malloc((npts+DELTA)*sizeof(pts[0]));
+.
+w
+q
+EOF
+for i in 9term/display.c libXg/gwin.c libXg/wrbitmap.c libXg/xtbinit.c
+do
+	echo "patching $i"
+	ed $i << EOF
+/^#include.*Intrinsic/i
+#define	SYSV
+.
+/^#include.*Intrinsic/a
+#undef SYSV
+.
+w
+q
+EOF
+done

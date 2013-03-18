@@ -1,0 +1,136 @@
+.TH ESPRESSO 1 12/28/84
+.SH NAME
+espresso \- Boolean Minimization
+.SH SYNOPSIS
+.B espresso
+[\fItype\fR] [\fIfile\fR] [\fIoptions\fR]
+.SH DESCRIPTION
+.PP
+\fIEspresso\fR takes as input a two-level representation of a
+two-valued (or a multiple-valued) Boolean function, and produces a
+minimal equivalent representation.  The algorithms used are new and
+represent an advance in both speed and optimality of solution in
+heuristic Boolean minimization.
+.PP
+\fIEspresso\fR reads the \fIfile\fR
+provided (or standard input if no files are specified),
+performs the minimization, and writes the minimized result to
+standard output.
+\fIEspresso\fR
+automatically verifies that the minimized function
+is equivalent to the original function.
+.PP
+The default input and output file formats are compatible with the
+Berkeley standard format for the physical description of a PLA.  The
+input format is described in detail in espresso(5).  Note that the
+input file is a \fIlogical\fR representation of
+a set of Boolean equations, and hence the input format differs
+slightly from that described in pla(5) (which provides for the
+\fIphysical\fR representation of a PLA).
+The input and output formats
+have been expanded to allow for multiple-valued logic
+functions, and to allow for the specification of the
+don't care set which will be used in the minimization.
+.PP
+\fIType\fR specifies the logical format for the function.
+The allowed types are -f, -r, -fr, -fd, -dr, and
+-fdr which have the same meanings assigned in espresso(5).
+.PP
+The command line options described below can be specified anywhere
+on the command line and must be separated by spaces:
+.TP 8
+.B -d
+Verbose detail describing the
+progress of the minimization is written to standard output.
+Useful only for those familiar with the algorithms used.
+.TP 8
+.B -do [s]
+This option executes subprogram [s].  Some of the
+more useful ones are:
+.br
+\fBcheck\fR \- checks that the function is a partition of the
+entire space (i.e., that the ON-set, OFF-set and DC-set are
+pairwise disjoint, and that their union is the Universe)
+.br
+\fBecho\fR \- implies "-out fdr" and echoes
+the function to standard output.
+This can be used to compute the complement of a function.
+.br
+\fBopo\fR \- choose a good assignment of output function phases, and
+minimize the function
+.br
+\fBqm\fR \- generate all prime implicants of a function, compute
+the "reduced prime implicant table" and perform a simple
+greedy covering of this table.  Will also provide a bound on the
+size of the minimum solution if option -d is used.
+.br
+\fBstats\fR \- provide simple statistics on the size of the function
+.br
+The remaining subprograms
+(contain, compact, essen, expand, intersect, irred, lexsort, mincov,
+miniexpord, miniredord, pop, primes, reduce,
+sharp, taut, union, unravel, verify + surely others by now)
+are intended for those heavily into manipulating Boolean functions.
+.TP 8
+.B -fast
+Stop after the first EXPAND and IRREDUNDANT operations (i.e., do not
+iterate over the solution).
+.TP 8
+.B -kiss
+Sets up a \fIkiss\fR-style minimization problem.
+.TP 8
+.B -ness
+Essential primes will not be detected and removed from the minimization.
+.TP 8
+.B -nirr
+The final result will not necessarily be forced irredundant.
+.TP 8
+.B -help
+Provides a quick summary of the available command line options.
+.TP 8
+.B -out [s]
+Selects the output format.  By default, only the ON-set (i.e., type f)
+is output after the minimization.  [s] can be one of
+f, d, r, fd, dr, fr, or fdr to select any combination of the
+ON-set (f), the OFF-set (r) or the DC-set (d).
+.TP 8
+.B -pos
+Swaps the ON-set and OFF-set of the function after reading the function.
+(This can be used to minimize the OFF-set of a function.)
+.TP 8
+.B -s
+Will provide a short summary of the execution of the program including the
+initial cost of the function, the final cost, and the computer resources
+used.
+.TP 8
+.B -t
+Will produce a trace showing the execution of the program.
+After each main step of the algorithm, a single line is
+printed which reports the processor time used, and the current cost of
+the function.
+.TP 8
+.B -x
+Suppress printing of the solution.
+.SH DIAGNOSTICS
+\fIespresso\fR will issue a warning message
+if a product term spans more than one line.  Usually this is an
+indication that the number of inputs or outputs of the function
+is specified incorrectly.
+.SH "SEE ALSO"
+pla(5), espresso(5)
+.br
+\fILogic Minimization Algorithms for VLSI Synthesis\fR,
+R. Brayton, G. Hachtel, C. McMullen, and A. Sangiovanni-Vincentelli,
+Kluwer Academic Publishers, 1984.
+.SH AUTHOR
+Richard Rudell
+.SH BUGS
+Always passes comments from the input file, and passes
+unrecognized options straight from the input file
+to standard output (sometimes this isn't what you want).
+.sp 1
+There are a lot of options, but the most typical use is the following:
+.nf
+	eqntott -r file.eqn | espresso >file.pla
+.fi
+The -R option of eqntott should not be used (it is much too expensive).

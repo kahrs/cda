@@ -1,0 +1,38 @@
+./doc - Introductory chapter (revised)
+./lib - library directory (see GUIDE)
+./man - manual pages
+./man/man6 - various format pages
+./man/man1 - program pages
+./scripts- Various awk scripts, see GUIDE for details
+./example - example from ./doc
+./src - master source root
+./src/xnf/mkfile
+./src/pll - phase lock loop calculator
+./src/unisite - unisite programmer
+./src/rom
+./src/act - actel
+./src/lde - logical expression (minterm) compiler
+./src/smoke - static checker
+./src/graw - graphical editor
+./src/rework - netlist difference (for wirewrap)
+./src/cdmglob - netlist combiner
+./src/libutf - Plan9 unicode library
+./src/part - Original partitioner (pre-paddle)
+./src/Makefile - Master makefile
+./src/xpal - fuse mapper for PLDs
+./src/include - various includes
+./src/mkpins - fizz make pins
+./src/libbio - Plan9 block io library
+./src/quine - Quine-McCluskey minimization
+./src/gnet - Conversion from graw output to nets
+./src/libXg - X compatible graphic library
+./src/twig - YACC like tree walker
+./src/fizz - New physical layout tools
+./src/fizz/lib - All important fizz library
+./src/mkfile - mkfile from Plan9
+./src/obsolete - old stuff, included for completeness
+./src/xpart - partitioner
+./src/place - fizz place (for wirewrap) - not currently functional
+./src/grawp - convert from graw output to pic
+./src/xil - Xilinx 
+./Manifest - This file

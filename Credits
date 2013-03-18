@@ -1,0 +1,62 @@
+The original Unix Circuit Design System (UCDS)  was described in the Unix BSTJ
+(July/August 1978) by Sandy Fraser.  This paper has been digitized by
+Alcatel-Lucent and is available on: 
+
+http://www3.alcatel-lucent.com/bstj/vol57-1978/articles/bstj57-6-2233.pdf
+
+It initially consisted of an editor for the Tektronix 4014 display and 
+a semi-automatic wire-wrap machine.
+
+This was extended by Ken Thompson when he developed the Belle chess machine
+with Joe Condon.  Specifically, Ken added the ability to write logical
+equations with lde and then minimize them with a Quine-McCluskey optimizer.
+He may have also introduced the use of "cdm" to combine netlists from 
+different files.
+
+UCDS took off in the mid-1970s when it was used for the CRISP microprocessor
+and all of the Datakit Development.  In addition, it was used for Bart
+Locanthi's 5620 (Blit) display (and his Gnot machine).  Greg Chesson wrote a simulator
+that vanished into the aether.  Mark Kahrs and Tom Killian used CDA to build
+Gnusic, a multiprocessor music synthesizer.  Not to be outdone, Jim Snyder
+of the Acoustics Lab used UCDS to design numerous DSP boxes including the
+world's first portable solid-state AAC player.
+
+When Plan9 arrived, Mark Kahrs decided to port UCDS.  This was done fairly
+easily.  However, since Plan9 is not Unix, the decision was made to change the name to CDA (Circuit
+Design Aids).  Somehow, Joe Condon convinced Andrew Hume that a new
+system for physical layout was needed.  The result was "fizz" and the
+associated library.  These tools were used to build
+Xunet (a T3-based inter-university network) by Alan Kaplan and Bob Restrick and friends.
+
+When the first Plan9 CD-ROM was released, we decided to include CDA in the distribution.
+It was documented and then released.  Subsequent releases of Plan9 omitted CDA.
+
+Now, 20 years later, Mark Kahrs decided to back port it to linux.  This is
+the result you see now.
+
+Here is a list of the component programs and their history:
+
+act - written by Restrick, this programs Actel parts
+cdmglob - not sure who wrote this, but it replaces cdm (faster)
+fizz - written by Andrew Hume, this changed the physical layout software significantly
+gnet - written by Bart Locanthi to generate nets from the output of graw
+graw - witten by Bart, a replacement for jraw (for the jerq, or 5620 or Blit) which replaced draw,
+  the editor for the venerable Tektronix 4014
+grawp - generates pic output from drawings
+lde - logical equation to minterm converter, written by Ken Thompson
+mkpins - generate pin file
+part - device partitioner
+place - Written by Andrew Hume, this graphical editor is for laying out boards.
+pll - Written by Mark Kahrs, this was a first cut at a Phase lock loop designer
+quine/cover/hazard - Part of Ken's logical equation compiler (include hazard)
+rework - Written by Joe Condon, given a set of wire wraps, this computes the unwrap and wrap commands
+  for the semi-automatic wire-wrap machine
+rom - rom bit map
+smoke - Written by Mark Kahrs, this uses the pin type declarations to find simple static errors
+unisite - Writes fuse maps to the Unisite programmer, written by Joe Condon
+xil - Xilinx programmer
+xnf - Convert to Xilinx netlist format
+xpal - Written by Mark Kahrs, this uses a fuse map description written in
+  a language called PADDLE.  This was described in IEEE Design and Test.
+  It extended the original "pal".
+xpart - Extended version of part, probably written by Bob Restrick.

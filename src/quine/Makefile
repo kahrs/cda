@@ -1,0 +1,2 @@
+all: quine cover hazard
+

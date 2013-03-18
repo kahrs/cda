@@ -1,0 +1,24 @@
+cc -DUNIX -O -c main.c
+cc -DUNIX -O -c espresso.c
+cc -DUNIX -O -c compl.c
+cc -DUNIX -O -c essen.c
+cc -DUNIX -O -c expand.c
+cc -DUNIX -O -c gasp.c
+cc -DUNIX -O -c irred.c
+cc -DUNIX -O -c reduce.c
+cc -DUNIX -O -c cofactor.c
+cc -DUNIX -O -c contain.c
+cc -DUNIX -O -c cvrm.c
+cc -DUNIX -O -c cvrmisc.c
+cc -DUNIX -O -c cvrin.c
+cc -DUNIX -O -c cvrout.c
+cc -DUNIX -O -c explode.c
+cc -DUNIX -O -c opo.c
+cc -DUNIX -O -c pair.c
+cc -DUNIX -O -c pop.c
+cc -DUNIX -O -c mincov.c
+cc -DUNIX -O -c setc.c
+cc -DUNIX -O -c set.c
+cc -DUNIX -O -c memory.c
+cc -DUNIX -O -c ptime.c
+csh -f -c "cc -DUNIX -O -o ./espresso main.o espresso.o compl.o essen.o expand.o gasp.o irred.o reduce.o cofactor.o contain.o cvrm.o cvrmisc.o cvrin.o cvrout.o explode.o opo.o pair.o pop.o mincov.o setc.o set.o memory.o ptime.o"

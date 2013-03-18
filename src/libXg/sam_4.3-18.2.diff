@@ -1,0 +1,1278 @@
+--- sam-4.3.orig/debian/local/menu/sam
++++ sam-4.3/debian/local/menu/sam
+@@ -0,0 +1,2 @@
++?package(sam): needs=X11 section=Apps/Editors title=Sam command="/usr/bin/sam"
++?package(sam): needs=text section=Apps/Editors title=Sam command="/usr/bin/sam"
+--- sam-4.3.orig/debian/local/man-header.roff
++++ sam-4.3/debian/local/man-header.roff
+@@ -0,0 +1,31 @@
++.de F
++.B
++.if !"\\$1"" \&\\$1 \\$2 \\$3 \\$4 \\$5 \\$6
++..
++.de L
++.B
++.if !"\\$1"" \&\\$1 \\$2 \\$3 \\$4 \\$5 \\$6
++..
++.de FR
++.BR "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
++..
++.de LR
++.BR "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
++..
++.de CW
++.ft B
++..
++.\" This is gross but it avoids relying on internal implementation details
++.\" of the -man macros.
++.de TF
++.IP "" \w'\fB\\$1\ \ \fP'u
++.PD0
++..
++.de EX
++.CW
++.nf
++..
++.de EE
++.fi
++..
++.\" delete above this point if your system has F, L, FR, LR, CW and TF macros
+--- sam-4.3.orig/debian/local/sam
++++ sam-4.3/debian/local/sam
+@@ -0,0 +1,9 @@
++#!/bin/bash
++# automatically provide the -d option for sam, where needed
++# multiple -d options do no harm
++
++if [ -n "$DISPLAY" ]; then
++	exec -a "$0" /usr/bin/sam.real "$@"
++else
++	exec -a "$0" /usr/bin/sam.real -d "$@"
++fi
+--- sam-4.3.orig/debian/README.Debian
++++ sam-4.3/debian/README.Debian
+@@ -0,0 +1,14 @@
++sam for Debian
++--------------
++
++(1) man pages have been edited for their new locations, but not renamed,
++renaming happens at binary-arch: time (this is nicer for diff).
++
++(2) sam is a bash script, to allow sam to do the right thing when X
++is not available.  The binary is named sam.real.  bash is used so
++that ps and pidof display "sam" rather than "sam.real".
++
++(3) the Makefiles talk about defining an OS target, and about defining
++_POSIX_SOURCE.  Don't do this, it's not worth the pain.
++
++Raul Miller <moth@debian.org>, Sat, 22 Nov 1997 23:14:51 -0500
+--- sam-4.3.orig/debian/changelog
++++ sam-4.3/debian/changelog
+@@ -0,0 +1,216 @@
++sam (4.3-18.2) unstable; urgency=low
++
++  * Non-maintainer upload
++  * Splitted xlibs-dev build-dep (Closes: #347103)
++
++ -- Marc 'HE' Brockschmidt <he@debian.org>  Sat, 21 Jan 2006 15:54:16 +0100
++
++sam (4.3-18.1) unstable; urgency=medium
++
++  * NMU during BSP.
++  * Use <errno.h> instead of `extern int errno'.
++    Closes: #228611, #280259, #324371.
++  * Move menu file to /usr/share/menu.
++
++ -- Matej Vela <vela@debian.org>  Mon, 31 Oct 2005 08:21:49 +0100
++
++sam (4.3-18) unstable; urgency=low
++
++  * The `Minime' release.
++  * This is the demise of libxg-dev. No package depends or build-depends
++    on it, no bugs filed against it, no nothing. If someone wants it back,
++    file a bug.
++  * debian/control (Standards-Version): Bumped to 3.5.9.
++    (Build-Depends): Build depend on dpatch (>= 1.13) and ed.
++    (libxg-dev): Do not build this package anymore.
++  * debian/rules: Reworked to not build libxg-dev.
++  * debian/patches/02-mkfont.c.dpatch: Converted to use set -e.
++  * debian/patches/03-libgint.h.dpatch: Likewise.
++  * debian/patches/04-tempfile.dpatch: Likewise.
++  * debian/patches/05-Makefile.dpatch: Likewise.
++  * debian/patches/01-manpages.dpatch: Splitted up into...
++  * debian/patches/01-man-headers.dpatch: ..this one, which used /bin/ed
++    to remove the headers..
++  * debian/patches/01-man-section.dpatch: ..and this one, which corrects
++    the sections and some other stuff.
++  * debian/local/man-header.roff: New file, used by 01-man-headers.dpatch
++    in its unpatch mode.
++  * debian/patches/00list: Removed, PATCHLIST is used now.
++  * debian/copyright: Updated download location, to point to a place that
++    actually exists.
++
++ -- Gergely Nagy <algernon@bonehunter.rulez.org>  Thu,  3 Apr 2003 10:26:47 +0200
++
++sam (4.3-17) unstable; urgency=low
++
++  * The `Any Where Out Of The World' release.
++  * debian/patches/01-manpages.dpatch: Updated the doc/sam.1 patch:
++    - Refer to regexp(7g) instead of (6g). (Closes: #178299)
++    - Changed .PD0 to .PD 0, as advised by man itself.
++
++ -- Gergely Nagy <algernon@bonehunter.rulez.org>  Sun, 26 Jan 2003 01:20:55 +0100
++
++sam (4.3-16) unstable; urgency=low
++
++  * The `Nierika' release.
++  * debian/control (Build-Depends): Added dpatch.
++    (Standards-Version): Bumped to 3.5.8
++  * debian/rules (patch, unpatch): Removed, include dpatch.make instead.
++  
++ -- Gergely Nagy <algernon@bonehunter.rulez.org>  Tue, 31 Dec 2002 19:38:56 +0100
++
++sam (4.3-15) unstable; urgency=low
++
++  * The `When Sorrow Sang' release.
++  * debian/maint/sam/postinst: Use `if' instead of test .. &&, so the
++    we do not fail without update-menus. While here, removed the /usr/doc
++    symlink stuff.
++  * debian/maint/sam/postrm: Likewise.
++  * debian/maint/sam/prerm: Likewise.
++  * The above three: Closes: #168281, #159301.
++  * debian/maint/libxg-dev/postinst: Removed, since we do not need the
++    /usr/doc symlink code anymore.
++  * debian/maint/libxg-dev/prerm: Likewise.
++  * debian/README.Debian: Fixed a typo.
++  * debian/control (Maintainer): Changed my e-mail address.
++    (Standards-Version): Bumped to 3.5.7.
++    (sam/Description): Reformatted.
++    (libxg-dev/Description): Likewise.
++  * debian/copyright: Changed my e-mail address, and reformatted the
++    original copyright text to look better.
++  * debian/rules: Updated to conform to Policy 3.5.7.
++    (binary-libxg-dev): Do not copy files from debian/maint/libxg-dev,
++    they are not there anymore.
++  * Officially invalidating my RFA too (Closes: #154638)
++
++ -- Gergely Nagy <algernon@bonehunter.rulez.org>  Tue, 12 Nov 2002 19:36:57 +0100
++
++sam (4.3-14) unstable; urgency=low
++
++  * debian/rules: Full support for DEB_BUILD_OPTIONS
++  * Patch utf(5g) to not include Unicode and Ascii in the NAME section. It
++    doesn't really document unicode, nor ascii. Also, made rune(5g) a
++    symlink pointing to utf(5g). (Closes: #99553)
++  * Created missing symlinks in libxg-dev too (Closes: #99560)
++
++ -- Gergely Nagy <algernon@debian.org>  Fri, 15 Feb 2002 16:22:00 +0100
++
++sam (4.3-13) unstable; urgency=low
++
++  * New maintainer (Closes: #129954)
++  * Added missing prototypes, patch from John R.Daily (Closes: #126530)
++  * Destination distribution set to unstable (Closes: #116189)
++  * Removed Emacs-settings from this changelog
++  * Converted to the dpatch system
++  * Combined libxg-dev and sam changelog and copyright
++  * [libxg-dev]: moved libraries from /usr/X11R6/lib to /usr/lib
++  * Repackaged to get rid of the debmake build-dependency
++  * Symlink subfont.5g.gz to font.5g.gz, this partly fixes #99553
++
++ -- Gergely Nagy <algernon@debian.org>  Mon, 11 Feb 2002 14:49:59 +0100
++
++sam (4.3-12) frozen; urgency=medium
++
++  * fix /usr/man -> /usr/share/man (Thanks Heitzo)
++
++ -- Raul Miller <moth@debian.org>  Thu, 19 Jul 2001 16:46:57 -0400
++
++sam (4.3-11) frozen; urgency=low
++
++  * add Build-Depends: (closes #103754)
++  * make sam's app-defaults be a conffile
++
++ -- Raul Miller <moth@debian.org>  Sat,  7 Jul 2001 15:15:32 -0400
++
++sam (4.3-10) frozen; urgency=medium
++
++  * Rebuilt with more recent imake (closes #86287)
++  * Replaced tempnam() and related stuff with tmpfile()
++  * did the /usr/doc -> /usr/share/doc switcharoo, and
++    bumped policy version
++
++ -- Raul Miller <moth@debian.org>  Fri, 23 Feb 2001 07:09:03 -0500
++
++sam (4.3-9) frozen; urgency=medium
++
++  * moved /usr/doc/doc/sam/. material back to /usr/doc/sam/.
++
++ -- Raul Miller <moth@debian.org>  Wed, 16 Feb 2000 18:22:28 -0500
++
++sam (4.3-8) frozen; urgency=high
++
++  * fix permissions problem (closes:Bug#57899) [ouch]
++  * work around dpkg-gencontrol's over-eager support of /usr/share/doc
++
++ -- Raul Miller <moth@debian.org>  Sun, 13 Feb 2000 14:59:00 -0500
++
++sam (4.3-7) frozen; urgency=low
++
++  * move libxg headers from /usr/include/ to /usr/include/plan9/
++    this is important for configure for some non-plan9 programs.
++    This will break programs which currently use libxg when they're
++    recompiled -- sorry.  (But there are currently no such in
++    debian/main).  Closes #33663.
++
++ -- Raul Miller <moth@debian.org>  Mon, 22 Feb 1999 08:24:55 -0500
++
++sam (4.3-6) unstable; urgency=low
++
++  * added Paul Slootman's #include <stdlib.h> to libXg/mkfont.c
++    for alpha architecture
++
++ -- Raul Miller <moth@debian.org>  Sat, 24 Jun 1998 05:01:10 -0400
++
++sam (4.3-5) frozen; urgency=low
++
++  * fix B not executable
++  * fix libxg-dev not having valid /usr/doc/libxg-dev/copyright
++  * fix md5sums problem for libxg-dev
++  * fix B has no manpage
++  * fix sam.real has no manpage
++
++ -- Raul Miller <moth@debian.org>  Sat,  4 Apr 1998 20:34:05 -0500
++
++sam (4.3-4) unstable; urgency=low
++
++  * reinstated B.
++
++ -- Raul Miller <moth@debian.org>  Sun, 23 Nov 1997 17:48:04 -0500
++
++sam (4.3-3) unstable; urgency=low
++
++  * fix section and priority -- these had been lost earlier today when
++    I rm -rf'd the entire debian directory.
++  * added Suggests: ssh (another lossage from ealier today)
++
++ -- Raul Miller <moth@debian.org>  Sun, 23 Nov 1997 17:27:05 -0500
++
++sam (4.3-2) unstable; urgency=low
++
++  * Re-build and re-release after having been orphaned (closes #4030,
++    #9503, #12824, #13062 as did Mark's non-maintainer release).
++  * Split out libXg and libframe (and man3) into a small -dev package
++  * clean up man page hierarchy
++
++ -- Raul Miller <moth@debian.org>  Sat, 22 Nov 1997 23:14:51 -0500
++
++sam (4.3-1.1) unstable; urgency=low
++
++  * Non-maintainer release
++  * New source format
++  * Libc6 compile
++
++ -- Mark Baker <mbaker@iee.org>  Sat, 22 Nov 1997 21:57:09 +0000
++
++sam (4.3-1) unstable; urgency=low
++
++  * B now works as EDITOR, use EDITOR='B -fa'
++  * re-arranged manual pages, most are primarily for plan9
++
++ -- Raul Miller <moth@magenta.com>  Wed, 31 Jan 1996 23:30:01 -0500
++
++sam (4.3-0?) unstable; urgency=low
++
++  * implemented as debian package
++
++ -- Raul Miller <moth@magenta.com>  Fri, 26 Jan 1996 12:17:11 -0500
+--- sam-4.3.orig/debian/control
++++ sam-4.3/debian/control
+@@ -0,0 +1,27 @@
++Source: sam
++Section: editors
++Priority: optional
++Maintainer: Gergely Nagy <algernon@bonehunter.rulez.org>
++Standards-Version: 3.5.9
++Build-Depends: libx11-dev, libxt-dev, x-dev, ed, dpatch (>= 1.13)
++
++Package: sam
++Architecture: any
++Depends: ${shlibs:Depends}
++Suggests: ssh
++Section: editors
++Description: the plan9 text editor -- ed with a gui and multi-file editing
++ sam -d can be used without X (with an ed-like interface -- but with
++ more powerful regular expressions, the capacity to edit multiple
++ files with a single command, and unlimited undo).  Files can be added
++ to an exiting sam session using the B command.
++ .
++ sam without the -d option is an graphical editor with pop-up menus
++ and a point+click interface. You'll want to read sam's manual page to
++ use the full power of sam, but you can probably figure out how to do
++ basic editing with a minimum of trial and error.
++ .
++ If you have a Plan 9 terminal, you can use the Plan 9 terminal with
++ sam to edit unix files, but not vice-versa; the Plan 9 authentication
++ scheme does not honor remote execution requests from a non-Plan 9
++ system.
+--- sam-4.3.orig/debian/copyright
++++ sam-4.3/debian/copyright
+@@ -0,0 +1,22 @@
++This package was debianised by Raul Miller moth@debian.org on
++Sat, 22 Nov 1997 23:14:51 -0500.
++
++It is currently maintained by Gergely Nagy <algernon@bonehunter.rulez.org>
++
++It was downloaded from ftp://ftp.cs.usyd.edu.au/matty/unicode/sam.msg.gz
++
++Copyright:
++
++The authors of this software are Rob Pike and Howard Trickey.
++		Copyright (c) 1992 by AT&T.
++
++Permission to use, copy, modify, and distribute this software for any
++purpose without fee is hereby granted, provided that this entire notice
++is included in all copies of any software which is or includes a copy
++or modification of this software and in all copies of the supporting
++documentation for such software.
++
++THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
++WARRANTY.  IN PARTICULAR, NEITHER THE AUTHORS NOR AT&T MAKE ANY
++REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
++OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
+--- sam-4.3.orig/debian/rules
++++ sam-4.3/debian/rules
+@@ -0,0 +1,102 @@
++#! /usr/bin/make -f
++## debian/rules for the Debian packages version of sam
++## (C) 2002 Gergely Nagy <algernon@debian.org>,
++## Based on the work of Raul Miller <moth@debian.org>
++##
++## Released under the terms of the GNU GPLv2.
++
++PACKAGE		= sam
++DEB_SAM		= ${CURDIR}/debian/sam
++
++CFLAGS 		= -g
++ifneq (,$(findstring noopt,${DEB_BUILD_OPTIONS}))
++CFLAGS          += -O0
++else
++CFLAGS          += -O2
++endif
++
++PATCHLIST	 = $(notdir $(basename $(wildcard debian/patches/*.dpatch)))
++
++include /usr/share/dpatch/dpatch.make
++
++build: patch
++	test -e debian/control
++	${MAKE} CFLAGS="-D_LIBXG_EXTENSION -I../include ${CFLAGS}" \
++		XLIBS="-L/usr/X11R6/lib -lXt -lX11" \
++		TERMNAME="/usr/lib/sam/samterm" RXNAME="ssh" \
++		RXPATHNAME="/usr/bin/ssh" TMP="/var/tmp"
++
++clean: clean1 unpatch
++	test -e debian/control && test xroot = x`whoami`
++	rm -rf debian/patched
++clean1: 
++	test xroot = x`whoami`
++	rm -f build
++	${MAKE} nuke
++	rm -rf debian/files* core debian/*substvars debian/sam
++
++binary-sam: build
++	test -e debian/control && test xroot = x`whoami`
++## Install directories
++	install -d ${DEB_SAM}/etc/X11/app-defaults ${DEB_SAM}/usr/bin \
++		${DEB_SAM}/usr/lib/sam ${DEB_SAM}/usr/share/doc/sam \
++		${DEB_SAM}/usr/share/man/man1 ${DEB_SAM}/usr/share/man/man5 \
++		${DEB_SAM}/usr/share/man/man7 ${DEB_SAM}/usr/share/menu \
++		${DEB_SAM}/DEBIAN/
++	${MAKE} install DESTDIR=${DEB_SAM} SHARE=/share \
++			SAMTERM=${DEB_SAM}/usr/lib/sam/samterm \
++			RSAMNAME=sam.real SAMSAVEDIR=${DEB_SAM}/usr/lib/sam \
++			SAMDIR=${DEB_SAM}/usr/bin
++	install -m 0755 debian/local/sam ${DEB_SAM}/usr/bin/sam
++	install -m 0755 sam/B.sh ${DEB_SAM}/usr/bin/B
++## Install manual pages
++	gzip -9fc doc/sam.1 >${DEB_SAM}/usr/share/man/man1/sam.1.gz
++	ln -sf sam.1.gz ${DEB_SAM}/usr/share/man/man1/sam.real.1.gz
++	ln -sf sam.1.gz ${DEB_SAM}/usr/share/man/man1/B.1.gz
++	for f in doc/*.4; do \
++		gzip -9fc $$f >${DEB_SAM}/usr/share/man/man5/`basename $$f .4`.5g.gz; \
++	done
++	for f in doc/*.6; do \
++		gzip -9fc $$f >${DEB_SAM}/usr/share/man/man7/`basename $$f .6`.7g.gz; \
++	done
++	ln -sf font.5g.gz ${DEB_SAM}/usr/share/man/man5/subfont.5g.gz
++	ln -sf utf.5g.gz ${DEB_SAM}/usr/share/man/man5/rune.5g.gz
++## Install misc. stuff
++	install -m 0644 doc/Sam.ad ${DEB_SAM}/etc/X11/app-defaults
++	install -m 0644 doc/sam.ps doc/sam.tut.ms doc/se.ps \
++		${DEB_SAM}/usr/share/doc/sam/
++## Install docs
++	install -m 0644 README.dist debian/README.Debian \
++		debian/copyright ${DEB_SAM}/usr/share/doc/sam/
++	gzip -9fc README >${DEB_SAM}/usr/share/doc/sam/README.gz
++	gzip -9fc debian/changelog \
++		  >${DEB_SAM}/usr/share/doc/sam/changelog.Debian.gz
++## Install menu-file
++	install -m 0644 debian/local/menu/sam ${DEB_SAM}/usr/share/menu
++## Strip binaries
++ifeq (,$(findstring nostrip,${DEB_BUILD_OPTIONS}))
++	strip --remove-section=.note --remove-section=.comment \
++		${DEB_SAM}/usr/bin/sam.real ${DEB_SAM}/usr/lib/sam/samterm
++endif
++## Generate ${shlibs:Depends}
++	dpkg-shlibdeps -Tdebian/sam.substvars -dDepends \
++			${DEB_SAM}/usr/bin/sam.real \
++			${DEB_SAM}/usr/lib/sam/samterm
++## Install files into DEBIAN/
++	install -m 0755 debian/maint/sam/p* ${DEB_SAM}/DEBIAN/
++	install -m 0644 debian/maint/sam/conffiles ${DEB_SAM}/DEBIAN/
++## Generate DEBIAN/md5sums
++	cd ${DEB_SAM} >/dev/null; \
++	  find * -type f ! -regex '^DEBIAN/.*' -print0 | xargs -r0 md5sum > DEBIAN/md5sums
++## Generate DEBIAN/control
++	dpkg-gencontrol -isp -psam -Tdebian/sam.substvars \
++		-P${DEB_SAM}
++## And finally build it
++	dpkg --build ${DEB_SAM} ..
++
++binary-indep: ;
++binary-arch: binary-sam
++binary:	binary-indep binary-arch
++
++.PHONY: binary binary-arch binary-indep clean patch unpatch clean1 \
++	binary-sam
+--- sam-4.3.orig/debian/maint/sam/conffiles
++++ sam-4.3/debian/maint/sam/conffiles
+@@ -0,0 +1 @@
++/etc/X11/app-defaults/Sam.ad
+--- sam-4.3.orig/debian/maint/sam/postinst
++++ sam-4.3/debian/maint/sam/postinst
+@@ -0,0 +1,11 @@
++#! /bin/sh
++
++set -e
++
++update-alternatives --install /usr/bin/editor editor /usr/bin/sam -50 \
++		    --slave /usr/share/man/man1/editor.1.gz editor.1.gz \
++		            /usr/share/man/man1/sam.1.gz
++
++if [ "$1" = "configure" ] && [ -x /usr/bin/update-menus ]; then
++        update-menus
++fi
+--- sam-4.3.orig/debian/maint/sam/postrm
++++ sam-4.3/debian/maint/sam/postrm
+@@ -0,0 +1,7 @@
++#! /bin/sh
++
++set -e
++
++if [ -x /usr/bin/update-menus ]; then
++	update-menus
++fi
+--- sam-4.3.orig/debian/maint/sam/prerm
++++ sam-4.3/debian/maint/sam/prerm
+@@ -0,0 +1,7 @@
++#! /bin/sh
++
++set -e
++
++if [ "$1" != "upgrade" ]; then
++	update-alternatives --remove editor /usr/bin/sam
++fi
+--- sam-4.3.orig/debian/patches/01-man-headers.dpatch
++++ sam-4.3/debian/patches/01-man-headers.dpatch
+@@ -0,0 +1,87 @@
++#! /bin/sh -e
++## 01-man-headers.dpatch by Gergely Nagy <algernon@debian.org>
++## Based on the work of Raul Miller <moth@debian.org>
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: Removes unnecessary macro definitions.
++
++FILES="add.3 balloc.3 bitblt.3 bitmap.6 cachechars.3 event.3 font.4 \
++frame.3 graphics.3 keyboard.4 regexp.6 rgbpix.3 rune.3 utf.4"
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch)
++	for f in ${FILES}; do
++	    echo "patching file doc/$f"
++            (cat <<EOF
++1,31d
++w
++q
++EOF
++            ) | ed doc/$f >/dev/null 2>&1
++	done
++	patch -f --no-backup-if-mismatch -p0 < $0
++	exit 0
++	;;
++    -unpatch)
++        for f in ${FILES}; do
++	    echo "patching file doc/$f"
++	    (cat <<EOF
++0r debian/local/man-header.roff
++w
++q
++EOF
++            ) | ed doc/$f >/dev/null 2>&1
++	done
++	patch -f --no-backup-if-mismatch -R -p0 < $0
++	exit 0
++        ;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++## Silly sam.1 is special... *grr*
++--- doc/sam.1	23 Nov 1997 01:40:01 -0000
+++++ doc/sam.1	8 Feb 2002 16:28:04 -0000
++@@ -1,35 +1,3 @@
++-.de F
++-.B
++-.if !"\\$1"" \&\\$1 \\$2 \\$3 \\$4 \\$5 \\$6
++-..
++-.de L
++-.B
++-.if !"\\$1"" \&\\$1 \\$2 \\$3 \\$4 \\$5 \\$6
++-..
++-.de FR
++-.BR "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
++-..
++-.de LR
++-.BR "\\$1" "\\$2" "\\$3" "\\$4" "\\$5" "\\$6"
++-..
++-.de CW
++-.ft B
++-..
++-.\" This is gross but it avoids relying on internal implementation details
++-.\" of the -man macros.
++-.de TF
++-.br
++-.IP "" \w'\fB\\$1\ \ \fP'u
++-.PD0
++-..
++-.de EX
++-.CW
++-.nf
++-..
++-.de EE
++-.fi
++-..
++-.\" delete above this point if your system has F, L, FR, LR, CW and TF macros
++ .ds a \fR*\ \fP
++ .TH SAM 1
++ .CT 1 editor
+--- sam-4.3.orig/debian/patches/06-errno.dpatch
++++ sam-4.3/debian/patches/06-errno.dpatch
+@@ -0,0 +1,38 @@
++#! /bin/sh /usr/share/dpatch/dpatch-run
++## 06-errno.dpatch by Matej Vela <vela@debian.org>
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: Use <errno.h> instead of `extern int errno'.
++
++@DPATCH@
++diff -urNad sam-4.3~/libframe/misc.c sam-4.3/libframe/misc.c
++--- sam-4.3~/libframe/misc.c	1997-11-23 02:40:19.000000000 +0100
+++++ sam-4.3/libframe/misc.c	2005-10-31 08:15:24.000000000 +0100
++@@ -7,6 +7,7 @@
++ #else
++ #include	<stdarg.h>
++ #endif
+++#include	<errno.h>
++ 
++ void
++ fprint(int fd, char *z, ...)
++@@ -22,8 +23,6 @@
++ 
++ int errstr(char *buf)
++ {
++-	extern int errno;
++-
++ 	strncpy(buf, strerror(errno), ERRLEN);
++ 	return 1;
++ }
++diff -urNad sam-4.3~/samterm/unix.c sam-4.3/samterm/unix.c
++--- sam-4.3~/samterm/unix.c	1997-11-23 02:40:18.000000000 +0100
+++++ sam-4.3/samterm/unix.c	2005-10-31 08:15:39.000000000 +0100
++@@ -102,7 +102,6 @@
++ 	/* Make the named pipe.  Multiple sams with the same user/display share the same pipe */
++ 	if (mkfifo(exname, 0600) == -1) {
++ 		struct stat	statb;
++-		extern int	errno;
++ 
++ 		if (errno != EEXIST || stat(exname, &statb) == -1)
++ 			return;
+--- sam-4.3.orig/debian/patches/01-man-section.dpatch
++++ sam-4.3/debian/patches/01-man-section.dpatch
+@@ -0,0 +1,452 @@
++#! /bin/sh -e
++## 01-man-section.dpatch by Raul Miller <moth@debian.org> Gergely Nagy
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: Migrates the manual pages to 3g/4g, etc sections as to not
++## DP: collide with already existing ones. Also fixes some formatting
++## DP: issues.
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch) patch -f --no-backup-if-mismatch -p0 < $0;;
++    -unpatch) patch -f --no-backup-if-mismatch -R -p0 < $0;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++diff -u doc/add.3 doc/add.3
++--- doc/add.3	1 Apr 2003 10:10:52 -0000
+++++ doc/add.3	8 Feb 2002 16:28:04 -0000
++@@ -207 +207 @@
++-.IR graphics (3).
+++.IR graphics (3g).
++diff -u doc/balloc.3 doc/balloc.3
++--- doc/balloc.3	1 Apr 2003 10:10:52 -0000
+++++ doc/balloc.3	8 Feb 2002 16:28:04 -0000
++@@ -135,6 +135,6 @@
++-.IR graphics (3))
+++.IR graphics (3g))
++ is called when this happens.
++ .SH "SEE ALSO"
++-.IR bitmap (6),
++-.IR graphics (3),
++-.IR bitblt (3).
+++.IR bitmap (7g),
+++.IR graphics (3g),
+++.IR bitblt (3g).
++diff -u doc/bitblt.3 doc/bitblt.3
++--- doc/bitblt.3	1 Apr 2003 10:10:52 -0000
+++++ doc/bitblt.3	8 Feb 2002 16:28:04 -0000
++@@ -331,2 +331,2 @@
++-.IR graphics (3),
++-.IT utf (4).
+++.IR graphics (3g),
+++.IT utf (5g).
++diff -u doc/bitmap.6 doc/bitmap.6
++--- doc/bitmap.6	1 Apr 2003 10:10:52 -0000
+++++ doc/bitmap.6	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH BITMAP 6
+++.TH BITMAP 7g
++ .SH NAME
++ bitmap \- external format for bitmaps
++ .SH SYNOPSIS
++@@ -8,7 +8,7 @@
++ #include <libg.h>
++ .SH DESCRIPTION
++ Bitmaps are described in
++-.IR graphics (3).
+++.IR graphics (3g).
++ Fonts and bitmaps are stored in external files
++ in machine-independent formats.
++ .PP
++@@ -17,7 +17,7 @@
++ and
++ .I wrbitmapfile
++ (see
++-.IR balloc (3)).
+++.IR balloc (3g)).
++ A bitmap file starts with 5
++ decimal strings:
++ .BR ldepth ,
++@@ -63,7 +63,7 @@
++ and
++ .I wrbitmap
++ functions described in
++-.IR balloc (3)
+++.IR balloc (3g)
++ also deal with rows in this format, stored in user memory.
++ .PP
++ Some small images, in particular 48\(mu48 face files
++@@ -83,4 +83,4 @@
++-.IR graphics (3),
++-.IR bitblt (3),
++-.IR balloc (3),
++-.IR font (6)
+++.IR graphics (3g),
+++.IR bitblt (3g),
+++.IR balloc (3g),
+++.IR font (5g)
++diff -u doc/cachechars.3 doc/cachechars.3
++--- doc/cachechars.3	1 Apr 2003 10:10:52 -0000
+++++ doc/cachechars.3	8 Feb 2002 16:28:04 -0000
++@@ -104,7 +104,7 @@
++ .B Font
++ consists of an overall height and ascent
++ and a collection of subfonts together with the ranges of runes (see
++-.IR utf (4))
+++.IR utf (5g))
++ they represent.
++ Fonts are described by the following structures.
++ .IP
++@@ -137,7 +137,7 @@
++ and
++ .L ldepth
++ fields of Font are described in
++-.IR graphics (3).
+++.IR graphics (3g).
++ .L Subf
++ contains
++ .L nsubf
++@@ -207,7 +207,7 @@
++-.IR graphics (3),
++-.IR balloc (3),
++-.IR bitblt (3),
++-.IR font (4).
+++.IR graphics (3g),
+++.IR balloc (3g),
+++.IR bitblt (3g),
+++.IR font (5g).
++ .SH DIAGNOSTICS
++ All of the functions use the graphics error function (see
++-.IR graphics (3)).
+++.IR graphics (3g)).
++diff -u doc/event.3 doc/event.3
++--- doc/event.3	1 Apr 2003 10:10:52 -0000
+++++ doc/event.3	8 Feb 2002 16:28:04 -0000
++@@ -72,7 +72,7 @@
++ in this case,
++ .IR xtbinit
++ (see
++-.IR graphics (3))
+++.IR graphics (3g))
++ must have already been called.
++ The user must provide a function called
++ .IR ereshaped ,
++@@ -178,7 +178,7 @@
++ .IR eread .
++ .PP
++ As described in
++-.IR graphics (3),
+++.IR graphics (3g),
++ the graphics functions are buffered.
++ .IR Event ,
++ .IR eread ,
++@@ -257 +257 @@
++-.IR graphics (3).
+++.IR graphics (3g).
++diff -u doc/font.4 doc/font.4
++--- doc/font.4	1 Apr 2003 10:10:52 -0000
+++++ doc/font.4	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH FONT 4
+++.TH FONT 5G
++ .SH NAME
++ font, subfont \- external format for fonts and subfonts
++ .SH SYNOPSIS
++@@ -10,7 +10,7 @@
++ .fi
++ .SH DESCRIPTION
++ Fonts and subfonts are described in
++-.IR cachechars (3).
+++.IR cachechars (3g).
++ .PP
++ External fonts are described by a plain text file that can be read using
++ .I rdfontfile.
++@@ -32,7 +32,7 @@
++ Subfonts may be loaded using
++ .IR getsubfont ,
++ see
++-.IR graphics (3).
+++.IR graphics (3g).
++ .SH BUGS
++ Some X font names contain spaces which will terminate the field.
++ For some fonts this can be worked around by replacing the spaces
++@@ -43,3 +43,3 @@
++-.IR graphics (3),
++-.IR bitblt (3),
++-.IR cachechars (3).
+++.IR graphics (3g),
+++.IR bitblt (3g),
+++.IR cachechars (3g).
++diff -u doc/frame.3 doc/frame.3
++--- doc/frame.3	1 Apr 2003 10:10:52 -0000
+++++ doc/frame.3	8 Feb 2002 16:28:04 -0000
++@@ -50,7 +50,7 @@
++ .I frames
++ of editable text in a single font on bitmap displays, such as in
++ .IR sam (1),
++-.IR 8\(12 (1),
+++8\(12 (1),
++ and
++ .IR 9term (1).
++ Frames may hold any character except NUL.
++@@ -164,7 +164,7 @@
++ .B Frame
++ is being moved but not reshaped, that is, if the shape of its containing
++ rectangle is unchanged, it is sufficient to
++-.IR bitblt (3)
+++.IR bitblt (3g)
++ the containing rectangle from the old to the new location and then call
++ .I frsetrects
++ to establish the new geometry.
++@@ -302,4 +302,4 @@
++-.IR graphics (3),
++-.IR bitblt (3),
++-.IR event (3),
++-.IR cachechar (3).
+++.IR graphics (3g),
+++.IR bitblt (3g),
+++.IR event (3g),
+++.IR cachechar (3g).
++diff -u doc/graphics.3 doc/graphics.3
++--- doc/graphics.3	1 Apr 2003 10:10:52 -0000
+++++ doc/graphics.3	8 Feb 2002 16:28:04 -0000
++@@ -163,7 +163,7 @@
++ A
++ .B Font
++ is a set of character images, indexed by runes (see
++-.IR utf (4)).
+++.IR utf (5g)).
++ The images are organized into
++ .BR Subfont s,
++ each containing the images for a small, contiguous set of runes.
++@@ -191,11 +191,11 @@
++ is zero (NUL) because
++ .B string
++ (see
++-.IR bitblt (3))
+++.IR bitblt (3g))
++ cannot draw a NUL.
++ The other fields are used internally by the text-drawing functions.
++ See
++-.IR cachechars (3)
+++.IR cachechars (3g)
++ for a detailed description.
++ .PP
++ .I Rdfontfile
++@@ -204,7 +204,7 @@
++ and returns a pointer that can by used by
++ .I string
++ (see
++-.IR bitblt (3))
+++.IR bitblt (3g))
++ to draw characters from the font.
++ The
++ .I ldepth
++@@ -339,7 +339,7 @@
++ By default,
++ .I xtbinit
++ does not install the standard Plan 9 colourmap, see
++-.IR rgbpix (3).
+++.IR rgbpix (3g).
++ .PP
++ .I Bclose
++ releases the resources allocated by
++@@ -356,7 +356,7 @@
++ .I bscreenrect
++ function returns the current size
++ (see
++-.IR event (3)
+++.IR event (3g)
++ to see how to get reshape notification).
++ .PP
++ The mouse cursor is always displayed.
++@@ -374,9 +374,9 @@
++ is a no-op.
++ .PP
++ The graphics functions described in
++-.IR bitblt (3)
+++.IR bitblt (3g)
++ and
++-.IR balloc (3)
+++.IR balloc (3g)
++ are implemented by writing commands to the X server;
++ the writes are buffered, so the functions may not take effect immediately.
++ .I Bflush
++@@ -407,7 +407,7 @@
++ .B Subfont
++ struct if it succeeds, zero otherwise,
++ see
++-.IR font (4).
+++.IR font (5g).
++ The subfont returned by
++ .I getsubfont
++ may be passed to
++@@ -454,14 +454,14 @@
++ .SH "SEE ALSO"
++-.IR add (3),
++-.IR balloc (3),
++-.IR cachechars (3),
++-.IR bitblt (3),
++-.IR event (3),
++-.IR frame (3),
++-.IR rgbpix (3),
++-.IR bitmap (4),
++-.IR font (4).
+++.IR add (3g),
+++.IR balloc (3g),
+++.IR cachechars (3g),
+++.IR bitblt (3g),
+++.IR event (3g),
+++.IR frame (3g),
+++.IR rgbpix (3g),
+++.IR bitmap (5g),
+++.IR font (5g).
++ .SH DIAGNOSTICS
++ An error function may call
++-.IR errstr (2)
+++.IR errstr (3g)
++ for further diagnostics.
++diff -u doc/keyboard.4 doc/keyboard.4
++--- doc/keyboard.4	1 Apr 2003 10:10:52 -0000
+++++ doc/keyboard.4	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH KEYBOARD 4
+++.TH KEYBOARD 5g
++ .SH NAME
++ keyboard \- how to type characters
++ .SH DESCRIPTION
++@@ -44,7 +44,7 @@
++ is generated by the \(-> and \(ua keys.
++ .PP
++ Internally, characters are represented as runes (see
++-.IR utf (4)).
+++.IR utf (5g)).
++ Any 16-bit rune can be typed as a multi-character sequence.
++ The compose key must be pressed while the first character
++ of the sequence is typed; on most terminals, the compose key
++@@ -138,5 +138,5 @@
++-.IR ascii (5),
+++.IR ascii (7),
++ .IR sam (1),
++ .IR 9term (1),
++-.IR graphics (3),
++-.IR utf (4)
+++.IR graphics (3g),
+++.IR utf (5g)
++diff -u doc/regexp.6 doc/regexp.6
++--- doc/regexp.6	1 Apr 2003 10:10:52 -0000
+++++ doc/regexp.6	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH REGEXP 6
+++.TH REGEXP 7G
++ .SH NAME
++ regexp \- regular expression notation
++ .SH DESCRIPTION
++@@ -127 +127 @@
++-.IR regexp (2)
+++.IR regexp (7)
++diff -u doc/rgbpix.3 doc/rgbpix.3
++--- doc/rgbpix.3	1 Apr 2003 10:10:52 -0000
+++++ doc/rgbpix.3	8 Feb 2002 16:28:04 -0000
++@@ -42,7 +42,7 @@
++ Some of the graphics functions, such as
++ .I point
++ (see
++-.IR bitblt (3)),
+++.IR bitblt (3g)),
++ take a
++ .I pixel value
++ argument, which is a single unsigned long.
++@@ -94,4 +94,4 @@
++ .SH "SEE ALSO"
++-.IR graphics (3),
++-.IR bitblt (3)
+++.IR graphics (3g),
+++.IR bitblt (3g)
++ 
++diff -u doc/rune.3 doc/rune.3
++--- doc/rune.3	1 Apr 2003 10:10:52 -0000
+++++ doc/rune.3	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH RUNE 3
+++.TH RUNE 3G
++ .SH NAME
++ runetochar, chartorune, runelen, fullrune, utflen, utfrune, utfrrune, utfutf \- rune/UTF conversion
++ .SH SYNOPSIS
++@@ -141 +141 @@
++-.IR utf (4)
+++.IR utf (5g)
++diff -u doc/sam.1 doc/sam.1
++--- doc/sam.1	1 Apr 2003 10:10:52 -0000
+++++ doc/sam.1	8 Feb 2002 16:28:04 -0000
++@@ -67,7 +67,7 @@
++ to select the desired window geometry.
++ .SS Regular expressions
++ Regular expressions are as in
++-.IR regexp (6)
+++.IR regexp (7g)
++ with the addition of
++ .BR \en
++ to represent newlines.
++@@ -191,7 +191,7 @@
++ .IR n .
++ .TP
++ .BI  / regexp /
++-.PD0
+++.PD 0
++ .TP
++ .BI ? regexp ?
++ The substring that matches the regular expression,
++@@ -381,7 +381,7 @@
++ .br
++ .ne 1.2i
++ .SS Text commands
++-.PD0
+++.PD 0
++ .TP
++ .BI a/ text /
++ .TP
++@@ -933,7 +933,7 @@
++ .BR $home/sam.save .
++ .SH SEE ALSO
++ .IR ed (1),
++-.IR regexp (6)
+++.IR regexp (7g)
++ .SH BUGS
++ .PP
++ When a sam window is resized, the command window may have the wrong size.
++diff -u doc/utf.4 doc/utf.4
++--- doc/utf.4	1 Apr 2003 10:10:52 -0000
+++++ doc/utf.4	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,4 @@
++-.TH UTF 4
+++.TH UTF 5G
++ .SH NAME
++ UTF, Unicode, ASCII, rune \- character set and format
++ .SH DESCRIPTION
++@@ -55,7 +55,7 @@
++ .SM ASCII
++ input.
++ See
++-.IR rune (2).
+++.IR rune (3g).
++ .PP
++ Letting numbers be binary,
++ a rune x is converted to a multibyte
++@@ -85,5 +85,5 @@
++ .SH "SEE ALSO"
++-.IR ascii (1),
++-.IR rune (3),
++-.IR keyboard (4),
+++.IR ascii (7),
+++.IR rune (3g),
+++.IR keyboard (5g),
++ .IR "The Unicode Standard" .
+--- sam-4.3.orig/debian/patches/02-mkfont.c.dpatch
++++ sam-4.3/debian/patches/02-mkfont.c.dpatch
+@@ -0,0 +1,30 @@
++#! /bin/sh
++## 02-mkfont.c.dpatch by Paul Slootman
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: #include <stdlib.h> in libXg/mkfont.c, to fix problems on Alpha
++
++set -e
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch) patch -f --no-backup-if-mismatch -p0 < $0;;
++    -unpatch) patch -f --no-backup-if-mismatch -R -p0 < $0;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++--- libXg/mkfont.c	23 Nov 1997 01:40:21 -0000
+++++ libXg/mkfont.c	8 Feb 2002 16:28:04 -0000
++@@ -1,4 +1,5 @@
++ /* Copyright (c) 1992 AT&T - All rights reserved. */
+++#include <stdlib.h>	/* on alpha, malloc() shouldn't default to int */
++ #include <libc.h>
++ #include <libg.h>
++ #include <string.h>
+--- sam-4.3.orig/debian/patches/03-libgint.h.dpatch
++++ sam-4.3/debian/patches/03-libgint.h.dpatch
+@@ -0,0 +1,36 @@
++#! /bin/sh
++## 03-libgint.h.dpatch by John R.Daily <jdaily@progeny.com>
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: #include features.h and stdio.h, to add missing prototypes.
++## DP: Supposed to fix problems on IA64.
++
++set -e
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch) patch -f --no-backup-if-mismatch -p0 < $0;;
++    -unpatch) patch -f --no-backup-if-mismatch -R -p0 < $0;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++--- libXg/libgint.h	23 Nov 1997 01:40:20 -0000
+++++ libXg/libgint.h	8 Feb 2002 16:28:04 -0000
++@@ -5,7 +5,10 @@
++  * include defs of standard library routines, if possible,
++  * and string routines
++  */
+++#include <features.h> /* Pull in _POSIX_SOURCE */
+++
++ #ifdef _POSIX_SOURCE
+++#include <stdio.h>
++ #include <stdlib.h>
++ #include <string.h>
++ #endif /* _POSIX_SOURCE */
+--- sam-4.3.orig/debian/patches/04-tempfile.dpatch
++++ sam-4.3/debian/patches/04-tempfile.dpatch
+@@ -0,0 +1,85 @@
++#! /bin/sh
++## 04-tempfile.dpatch by Raul Miller <moth@debian.org>
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: Migrate from mkstemp/tempnam to the supposedly more secure tmpfile()
++
++set -e
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch) patch -f --no-backup-if-mismatch -p0 < $0;;
++    -unpatch) patch -f --no-backup-if-mismatch -R -p0 < $0;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++--- sam/plan9.c	23 Nov 1997 01:40:17 -0000
+++++ sam/plan9.c	8 Feb 2002 16:28:04 -0000
++@@ -115,9 +115,14 @@
++ 	noted(NDFLT);
++ }
++ 
+++/*
+++ * switched to tmpfile because of predictability of algorithm
+++ * Raul 2001-02-24
+++ */
++ int
++ newtmp(int num)
++ {
+++#if 0
++ 	int i, fd;
++ 	static char	tempnam[30];
++ 
++@@ -131,6 +136,12 @@
++ 		fd = create(tempnam, ORDWR|OCEXEC|ORCLOSE, 0000);
++ 	}
++ 	return fd;
+++#else
+++	FILE *f= tmpfile();
+++	if (!f)
+++		return -1;
+++	return fileno(f);
+++#endif
++ }
++ 
++ int
++
++--- sam/unix.c	23 Nov 1997 01:40:17 -0000
+++++ sam/unix.c	8 Feb 2002 16:28:04 -0000
++@@ -143,12 +143,15 @@
++  *	most efficient place; nodes with disks may mount /usr/tmp
++  *	remotely, causing excessive network traffic.  place
++  *	the temp files locally, if possible.
+++ *
+++ *	tempnam() replaced by the supposedly more secure tmpfile()
++  */
++ int
++ newtmp(int i)
++ {
++-	char *s;
+++#if 0
++ 	FILE *f;
+++	char *s;
++ 	extern char *tempnam(const char*, const char*);
++ 
++ 	s = tempnam(TMPDIR, "sam.");
++@@ -159,6 +162,12 @@
++ 		return -1;
++ 	unlink(s);
++ 	return fileno(f);
+++#else
+++	FILE *f= tmpfile();
+++	if (!f)
+++		return -1;
+++	return fileno(f);
+++#endif
++ }
++ 
++ void
+--- sam-4.3.orig/debian/patches/05-Makefile.dpatch
++++ sam-4.3/debian/patches/05-Makefile.dpatch
+@@ -0,0 +1,44 @@
++#! /bin/sh
++## 05-Makefile.dpatch by Gergely Nagy <algernon@debian.org>
++##
++## All lines beginning with `## DP:' are a description of the patch.
++## DP: make sam/Makefile include sam/Makefile.debian, which overrides
++## DP: the default values of SAMDIR, TERMNAME, and other variables
++
++set -e
++
++if [ $# -ne 1 ]; then
++    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++    exit 1
++fi
++case "$1" in
++    -patch) patch -f --no-backup-if-mismatch -p0 < $0;;
++    -unpatch) patch -f --no-backup-if-mismatch -R -p0 < $0;;
++    *)
++	echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
++	exit 1;;
++esac
++
++exit 0
++
++--- sam/Makefile	23 Nov 1997 01:40:11 -0000
+++++ sam/Makefile	8 Feb 2002 16:54:57 -0000
++@@ -44,6 +44,8 @@
++ 
++ CFLAGS=$(OS) -D_LIBXG_EXTENSION $(INCS)
++ 
+++include Makefile.debian
+++
++ SYSFLAGS=  -DHOMEDIR=\"$(HOMEDIR)\" -DRSAMNAME=\"$(RSAMNAME)\" \
++ 		-DTERMNAME=\"$(TERMNAME)\" -DTMP=\"$(TMP)\" \
++ 		-DSHELLNAME=\"$(SHELLNAME)\" -DSHELLPATH=\"$(SHELLPATH)\" \
++
++--- /dev/null	Thu Jan  1 01:00:00 1970
+++++ sam/Makefile.debian	Fri Feb  8 17:54:04 2002
++@@ -0,0 +1,6 @@
+++TERMNAME=/usr/lib/sam/samterm
+++SAMDIR=/usr/bin
+++SAMSAVEDIR=/usr/lib/sam
+++TMP=/var/tmp
+++RXNAME=ssh
+++RXPATHNAME=/usr/bin/ssh

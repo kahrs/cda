@@ -1,0 +1,14 @@
+net int-: no o.c. pullup
+	plane          	67	(P2.INT- [5])
+	cable          	3	(J2.INT- [5])
+net ack-: no o.c. pullup
+	plane          	7	(P2.ACK- [5])
+	cable          	9	(J2.ACK- [5])
+pin plane.23 (P2.PC0): input pin not connected
+pin plane.25 (P2.PC2): input pin not connected
+pin plane.27 (P2.PC4): input pin not connected
+pin plane.29 (P2.PC6): input pin not connected
+pin plane.87 (P2.PC1): input pin not connected
+pin plane.89 (P2.PC3): input pin not connected
+pin plane.91 (P2.PC5): input pin not connected
+pin plane.93 (P2.PC7): input pin not connected

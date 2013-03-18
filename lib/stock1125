@@ -1,0 +1,1419 @@
+adc           6012         amd    000    adc                            A01
+dac           6080         amd    000    8-bit hi-speed dac             A01
+dac    18.00  6081a        amd    000    8-bit hi-speed dac             A01
+comp          68531u       amd    001    volt comp                      A02
+comp          68534e       amd    001    volt comp                      A02
+comp          68534u       amd    002    volt comp                      A02
+comp   13.40  686          amd    005    volt comp                      A03
+amp           741hm        amd    003    hi-perform op amp              A06
+dr            8820         amd    005    du diff line driver            A03
+trans         ad590        anlg   002    2-term temp transducer         A04
+amp           am500gc      datel  001    hi-speed op amp                A05
+dr            di445        di     001    pwr driver                     A05
+array         er201m       ers    001    analog funct array             A05
+comp          ua760dc      f      001    hi-speed diff comp             A07
+comp          ua760dm      f      001    hi-speed diff comp             A07
+comp          ua760hc      f      004    hi-speed diff comp             A07
+comp    4.75  ua760hm      f      003    hi-speed diff comp             A07
+amp           7350         f      000    tac op amp                     A08
+amp           7351         f      000    tri op amp                     A08
+amp           7703         f      000    rf-if amp                      A08
+amp           7716         f      001    amp                            A09
+amp     2.95  7733         f      001    diff video amp                 A09
+amp           7749         f      001    du aud op amp                  A09
+amp           7761         f      001    sense amp                      A10
+amp    12.50  7791         f      001    pwr op amp                     A10
+reg      1.75 7805         f      030    volt reg +5                    B39
+reg           7806         f      007    volt reg +6                    B40
+reg           7808         f      004    volt reg +8                    B40
+reg           7812         f      045    volt reg +12                   P39
+reg           7815         f      000    volt reg +15                   A11
+reg           7818         f      004    volt reg +18                   A11
+reg           7824         f      001    volt reg +24                   A11
+amp           783p3c       f      008    aud pwr amp                    A12
+reg     7.20  78h05        f      000    volt reg +5                    A12
+reg           78l05acz     f      000    volt reg +5                    A13
+reg           78l05ahc     f      001    volt reg +5                    A13
+reg           78l12ahc     f      011    volt reg +12                   A13
+reg           78l15ahc     f      005    volt reg +15                   A13
+reg           78l05awc     f      033    volt reg +5                    A14
+reg           78l06awc     f      009    volt reg +6                    A14
+reg           78l12awc     f      001    volt reg +12                   A14
+reg           78l02wc      f      008    volt reg +2                    A15
+reg           78l05wc      f      000    volt reg +5                    A15
+reg           78l06wc      f      009    volt reg +6                    A15
+reg           78l12wc      f      002    volt reg +12                   A16
+reg           78l15wc      f      001    volt reg +15                   A16
+reg           78m05hc      f      004    volt reg +5                    A17
+reg           78m08hc      f      011    volt reg +8                    A17
+reg           78m12hc      f      004    volt reg +12                   A17
+reg           78m15hc      f      004    volt reg +15                   A17
+reg     1.50  78m05hm      f      001    volt reg +5                    A18
+reg           78m06hm      f      006    volt reg +6                    A18
+reg           78m12hm      f      003    volt reg +12                   A18
+reg           78m06uc      f      001    volt reg +6                    A19
+reg           78m08uc      f      000    volt reg +8                    A19
+reg           78m12uc      f      000    volt reg +12                   A19
+nreg          79m05hm      f      000    neg volt reg -5                A21
+nreg          79m06ahc     f      004    neg volt reg -6                A21
+nreg          79m12ahc     f      001    neg volt reg -12               A21
+nreg          79m05auc     f      000    neg volt reg -5                A22
+nreg          79m06auc     f      006    neg volt reg -6                A22
+nreg          79m12auc     f      000    neg volt reg -12               A22
+areg          78mgt2c      f      001    adj volt reg                   A20
+anreg         79mgt2c      f      003    adj neg volt reg               A20
+dr            9616         f      002    line driver                    A23
+rec     3.95  9620         f      002    du diff line receiver          A23
+dr            9621         f      001    du line driver                 A23
+reg           sh1605       f      006    sw volt reg                    A24
+trcvr         1010         gi     000    term trans                     A24
+===           ay-5-1008    gi     001    -                              A25
+===           ay-5-1010    gi     004    -                              A25
+s&h    20.25  2425-5       h      100    sample & hold                  A26
+amp           2535-2       h      000    hi-slew rate op amp            A27
+amp     6.48  2655-5       h      000    du hi-perform op amp           A27
+dac           562-5        h      001    12-bit hi-speed dac            A27
+fltr          2912-3       intel  002    pcm line filter                A28
+fltr          2912-5       intel  002    pcm line filter                A28
+tmr           7555         inter  000    timer                          A29
+conv          7660         inter  001    volt conv                      A29
+comp          8001         inter  001    hi-input volt comp             A29
+===	      8018c	   icl	  001	 -				A29
+amp           8063         inter  004    pwr trans driver/amp           A30
+adc           8068         inter  002    low noise adc                  A30
+fltr          3064         inter  000    pcm filter                     A31
+fltr          3065         inter  002    pcm filter                     A31
+slic          3081         inter  002    slic                           A31
+slic          3082         inter  000    slic                           A31
+reg           las1905      lambda 003    volt reg +5                    A31
+amp           hm741        mot    000    comp op amp                    A32
+dvdr          1302p        mot    000    7-stage divider                A32
+preamp        1303         mot    000    du preamp                      A32
+amp           1306         mot    000    1/2 watt aud amp               A33
+diode         1403         mot    003    low volt ref diode             A33
+dac           1406l        mot    001    6-bit dac                      A34
+dac           1408l        mot    000    8-bit dac                      A34
+amp           1430         mot    002    op amp                         A35
+amp           1431         mot    001    op amp                         A35
+amp           1433p        mot    001    op amp                         A35
+amp           1435         mot    000    du op amp                      A36
+amp           1436         mot    004    hi-v op amp                    A36
+amp           1436cu       mot    002    hi-v op amp                    A36
+amp           1437         mot    001    du op amp                      A36
+amp           1439         mot    001    hi-slew rate op amp            A36
+amp           1445         mot    000    hi-freq amp                    A37
+amp           1458g        mot    003    du op amp                      A37
+reg           1460         mot    001    volt reg                       A38
+reg           1461         mot    002    volt reg                       A38
+reg           1466         mot    000    volt reg                       A39
+reg           1468l        mot    001    du trac volt reg +/-15         A39
+reg           1468r        mot    001    du trac volt reg +/-15         A39
+dr            1488         mot    000    quad line driver               A40
+rec           1489         mot    000    quad line receiver             A40
+adc           1505         mot    002    adc subsystem                  A41
+dac           1508         mot    002    8-bit dac                      A41
+comp          1514         mot    000    du diff comp                   A41
+amp           1530         mot    002    op amp                         A42
+amp           1531         mot    002    op amp                         A42
+amp           1535         mot    002    du op amp                      A42
+amp           1536         mot    001    hi-v op amp                    A43
+bstr          1538         mot    000    pwr booster                    A43
+amp           1539         mot    000    hi-slew rate op amp            A43
+amp           1545         mot    001    wb amp                         A44
+amp           1546         mot    000    sense amp                      A44
+amp           1550         mot    000    rf-if amp                      A45
+amp           1552         mot    000    video amp                      A45
+amp           1553         mot    000    video amp                      A45
+amp           1556         mot    000    hi-perform op amp              A46
+amp           1558         mot    014    du op amp                      A46
+mod           1596         mot    000    bal mod/demod                  A47
+osc           1648         mot    003    volt ctrl  osc                 A47
+adc           1650l        mot    000    du adc                         A47
+amp           1709         mot    002    op amp                         A48
+amp           1712g        mot    003    wb dc op amp                   A48
+conv          14408        mot    004    pulse conv                     A48
+conv          14409        mot    002    pulse conv                     A49
+encdr         14410        mot    000    2-of-8 tone endcode            A49
+tsa           14417p       mot    002    time slot assigner             A49
+comp          tda2002      mot    006    aud pwr comp                   A50
+areg    2.69  lm317k       mot    009    adj volt reg                   P37
+areg    2.69  lm317k       mot    005    adj volt reg                   B29
+dr            mch2005      mot    001    pwr driver                     A50
+sw            mc3344       mot    006    program freq sw                B01
+amp           mc3358       mot    003    du low pwr op amp              B01
+epc           mc34011p     mot    005    elec phone chip                B05
+amp           mc3403p      mot    001    quad dif op amp                B01
+sw            mc3420       mot    002    sw reg control                 B02
+sns           mc3423p      mot    005    overvolt sense cir             B02
+trans         mc3441       mot    005    quad inter bus trans           B02
+amp           mc3470       mot    002    flop disc read amp             B03
+inv           mc3482al     mot    001    oc 3-state buf/inv             B03
+rec           mc3486       mot    003    quad line receiver             B04
+rec           mc3487       mot    003    3-state quad line rec          B04
+comp          mc3505       mot    003    du volt comp                   B04
+sw            mc4060       mot    004    bus transfer switch            B05
+reg           mc6030       mot    001    volt reg                       B05
+reg           mc78l08      mot    022    low current reg +8             B06
+nreg          mc79l03      mot    006    neg volt reg -3                B06
+nreg          mc79l05acp   mot    050    neg volt reg -5                B06
+nreg          mc79l12      mot    020    neg volt reg -12               B07
+nreg          mc79l15      mot    017    neg volt reg -15               B07
+amp           mfc8002      mot    001    du diff amp                    B08
+amp           mfc9010      mot    000    aud amp                        B08
+amp           mlm2902      mot    006    quad op amp                    B08
+fltr          af130-2cj    ns     004    filter                         B09
+fltr          af132cj      ns     005    pcm filter                     B09
+fltr          af133-2cj    ns     003    pcm transmit filter            B09
+fltr          af134-2cj    ns     003    pcm receiver filter            B10
+sw            ah0014cd     ns     026    mos analog sw                  B10
+sw            ah0015       ns     001    analog sw                      B10
+sw	      ah0019       ns     002    analog sw 			B11
+sw	      ah5012	   ns	  016	 analog sw			B11
+sw            am1002       ns     001    analog sw                      B11
+dac           da1200       ns     000    dac 12-bit bin                 B12
+dac           da1201       ns     000    dac 12-bit bin                 B12
+dac           dac0806      ns     000    dac 8-bit                      B12
+amp           lf155        ns     000    op amp JFET input              B13
+amp           lf156        ns     002    op amp JFET input              B13
+amp           lf157        ns     000    op amp JFET input              B13
+s&h           lf298        ns     000    sample & hold                  B14
+comp          lf311        ns     000    volt comp                      B14
+amp           lf353        ns     000    du op amp JFET input           B14
+amp           lf357        ns     010    op amp                         B15
+s&h           lf398h       ns     001    sample & hold                  B15
+s&h           lf398an      ns     001    sample & hold                  B15
+areg          lf3700       ns     000    adj volt reg                   B15
+amp    10.20  lh0002       ns     000    current amp                    B16
+amp    71.60  lh0004       ns     000    hi-v op amp                    B16
+amp    29.70  lh0021ck     ns     000    1.0 amp pwr op amp             B17
+s&h    36.45  lh0023       ns     000    sample & hold                  B17
+amp    22.50  lh0024       ns     000    hi-slew rate op amp            B17
+amp    23.80  lh0032       ns     000    ultra fast FET op amp          B18
+amp    25.50  lh0033       ns     000    fast/damn fast op amp          B18
+amp    20.50  lh0041       ns     000    0.2 amp pwr op amp             B18
+amp    10.85  lh0042       ns     000    low cost FET op amp            B19
+s&h    32.80  lh0043       ns     000    sample & hold                  B19
+trans  45.00  lh0045       ns     000    2 wire transmitter             B19
+s&h    42.15  lh0053       ns     000    hi-speed sample & hold         B20
+amp    26.80  lh0062       ns     000    hi-speed FET op amp            B20
+amp    40.75  lh0063ck     ns     000    fast/damn fast buf amp         B20
+buf    18.10  lh0071-2h    ns     000    bin buf ref                    B21
+conv   59.15  lh0094       ns     000    mult func conv                 B21
+amp    11.60  lh2308       ns     000    du super beta op amp           B21
+amp    15.20  lh24250      ns     000    du prog micropwr op amp        B21
+rec    34.45  lh0082cd     ns     000    op comm receiver(ocr)          B22
+reg    15.40  lm109k       ns     000    volt reg +5                    B22
+reg    13.00  lm109h       ns     000    volt reg +5                    B22
+comp    4.90  lm111d       ns     000    volt comp                      B23
+diode  11.25  lm113h       ns     007    ref diode                      B23
+trans         lm115ah      ns     000    du trans                       B23
+amp    11.40  lm118h       ns     008    slew rate op amp               B24
+comp    8.50  lm119        ns     002    hi-speed du comp               B27
+asrc    5.04  lm134h       ns     002    3-term adj curr src            B24
+areg   34.60  lh150k       ns     002    3-amp adj pwr reg              P36
+comp   14.65  lm160        ns     005    hi-speed diff comp             B25
+trans  90.00  lm195k       ns     002    ultrareliable pwr trns         B25
+volt   29.50  lm199	   ns 	  000	 reference volt temp stable	B26
+flwr    5.90  lm210        ns     000    volt follower                  B26
+comp          lm211        ns     000    volt comp                      B26
+comp          lm219h       ns     000    hi-speed du comp               B27
+tmr           lm222h       ns     004    precision timer                B27
+reg           lm300        ns     003    volt reg                       B27
+flwr          lm302        ns     001    volt follower                  B28
+areg          lm305        ns     025    adj volt reg                   B28
+comp          lm306        ns     006    volt comp                      B28
+flwr          lm310        ns     000    volt follower                  B29
+comp          lm311        ns     000    volt comp                      B29
+areg          lm317        ns     010    3-term adj reg                 B30
+amp           lm318        ns     009    hi-slew rate op amp            B30
+comp          lm319        ns     000    hi-speed du comp comp          B30
+nreg          lm320k       ns     001    neg volt reg -5                B31
+nreg          lm320k       ns     002    neg volt reg -5.2              B31
+nreg          lm320k       ns     001    neg volt reg -12               B32
+nreg          lm320k       ns     001    neg volt reg -15               B32
+nreg          lm320m       ns     000    neg volt reg -5                B33
+nreg          lm320m       ns     003    neg volt reg -5.2              B33
+nreg          lm320m       ns     005    neg volt reg -6                B33
+nreg          lm320m       ns     002    neg volt reg -8                B34
+nreg          lm320m       ns     000    neg volt reg -9                B34
+nreg          lm320m       ns     000    neg volt reg -12               B34
+nreg          lm320m       ns     001    neg volt reg -24               B34
+nreg          lm320t       ns     000    neg volt reg -5                B35
+nreg          lm320t       ns     005    neg volt reg -6                B35
+nreg          lm320t       ns     000    neg volt reg -8                B35
+reg           lm323        ns     000    volt reg +5                    B36
+amp           lm324        ns     000    low pwr quad op amp            B36
+ref           lm329        ns     002    precision ref                  B36
+asrc          lm334        ns     008    3-term adj curr src            B37
+comp          lm339        ns     007    lowpwr lowoffset comp          B37
+reg           lm340t       ns     036    volt reg +5                    B38
+amp           lm358n       ns     008    low pwr du op amp              B38
+comp          lm360n       ns     000    hi-speed diff comp             B38
+buf           lm375n       ns     000    osc.+buf w. ttl                B39
+preamp        lm381        ns     000    low noise du preamp            B39
+amp           lm383        ns     000    8-watt aud pwr amp             B40
+amp           lm386        ns     012    low volt aud pwr amp           B40
+tmr           lm555cn      ns     000    timer                          B41
+comp          lm565cn      ns     000    VCO and pll comp               B41
+osc           lm566cn      ns     000    volt control osc               B41
+amp           lm7031       ns     000    op amp                         B42
+amp           lm725cn      ns     000    hi-accuracy op amp             B42
+amp           lm741cn      ns     000    op amp                         B42
+amp           lm747cn      ns     000    du op amp                      B43
+amp           lm1458       ns     000    du op amp                      B43
+amp           lm1558h      ns     000    du op amp                      B43
+trans         lm1812       ns     000    ultrasonic trans               B44
+tpsyst        lm1818n      ns     000    elec-sw aud tape syst          B44
+intrpt        lm1850       ns     000    interrupt                      B44
+encdr         lm1871       ns     002    RC encoder/transmitt           B44
+dcdr          lm1872       ns     000    Radio control rec/dcdr         B44
+conv          lm1890n      ns     000    current conv                   B45
+amp           lm3080n      ns     002    op transcond amp               B45
+amp           lm3900       ns     010    quad amp                       B45
+tmr           lm3905       ns     003    precision timer                B46
+flshr         lm3909       ns     006    LED Flasher/Osc                B46
+ctrl          lm3911       ns     013    temp controller                B46
+reg           lm78l05      ns     038    volt reg +5                    B47
+reg           lm78l08      ns     013    volt reg +8                    B47
+sw            mh453f       ns     001    analog switch                  B48
+sw            mm555h       ns     000    analog switch JFET             B48
+amp           nh0002       ns     000    cur amp                        B48
+amp           nh0002c      ns     002    cur amp                        B48
+amp           nh0003c      ns     001    hi-output cur amp              B48
+dr            nh0009c      ns     001    du MOS clock driver            B49
+sw            nh0014cd     ns     000    PMOS switch                    B49
+s&h           nh0023       ns     000    sample & hold                  B49
+amp           esm432c      nps    000    op amp                         B50
+amp           sl541c       ples   004    hi-slew video amp              B50
+amp           sl550c       ples   002    low noise amp                  C01
+sr            mn3005       pan    000    analog 4096-stage		C01    
+dac           dac-02       pm     000    dac                            C02
+dac           dac-04acu    pm     001    dac                            C02
+dac           dac-100      pm     000    dac                            C02
+comp          cmp-01cj     pm     002    single comp                    C02
+===           cmp-01ey     pm     002    -                              C02
+comp          cmp-02j      pm     000    comp                           C03
+comp          cmp-02cj     pm     001    comp                           C03
+amp           op-07ej      pm     001    op amp                         C03
+===	      op-02ey	   pm	  002	 -				C03
+amp           rc741d       ray    000    op amp                         C04
+amp           rm3503adc    ray    001    quad op amp                    C04
+amp           rc4131d      ray    003    op amp                         C04
+amp           rc4136       ray    000    op amp                         C05
+amp           rc4137db     ray    005    quad op amp                    C05
+conv          rc4151mb     ray    002    vfconv                         C05
+reg           rc4194d      ray    001    volt reg                       C06
+reg           rc4195mb     ray    005    volt reg                       C06
+amp           rc4559nb     ray    006    du op amp                      C06
+amp     3.26  ca3000       rca    001    dc amp                         C07
+amp     4.20  ca3001       rca    001    video amp                      C07
+amp     3.26  ca3002       rca    001    if amp                         C07
+amp     2.10  ca3005       rca    000    rf amp                         C08
+amp     4.10  ca3006       rca    001    rf amp                         C08
+amp      .90  ca3010       rca    001    op amp                         C08
+amp     1.88  ca3015       rca    001    op amp                         C08
+amp     4.42  ca3016       rca    001    oper amp                       C09
+trans    .80  ca3018       rca    001    trans arrays                   C09
+diode   1.06  ca3019       rca    002    ultrafast/lowcap diode         C09
+amp     3.26  ca3023       rca    000    low pwr wb video amp           C10
+amp     3.26  ca3028a      rca    000    diff/cascode amp               C10
+amp           ca3029       rca    000    op amp                         C11
+amp           ca3030       rca    000    op amp                         C11
+amp           ca3033       rca    001    op amp                         C11
+amp           ca3035       rca    000    wb amp                         C12
+diode         ca3039       rca    001    diode array                    C12
+amp           ca3043       rca    001    hi-gain if amp                 C12
+amp           ca3051       rca    000    du diff amp                    C13
+amp           ca3052       rca    000    ac amp                         C13
+===           ca3055       rca    000    -                              C15
+sw            ca3059       rca    001    zero volt switch               C13
+amp           ca3062       rca    001    pwr amp                        C14
+amp           ca3078       rca    001    micropwr op amp                C14
+amp           ca3080       rca    000    op trans amp                   C14
+trans         ca3081       rca    000    hi-curr trans array            C15
+trans         ca3082       rca    000    hi-curr trans array            C15
+areg          ca3085a      rca    001    adj volt reg                   C15
+amp           ca3094       rca    001    program pwr sw amp             C16
+comp          ca3099       rca    001    program comp w/mem             C16
+amp           ca3100s      rca    002    wb amp                         C16
+amp           ca3130       rca    000    bimos op amp                   C17
+amp           ca3240e      rca    004    du bimos op amp                C17
+trans         ca3600e      rca    001    cos/moss trans array           C17
+amp           ca3747ce     rca    001    op amp                         C17
+amp           lm324a       sig    000    quad op amp                    C18
+comp          lm339g       sig    001    quad volt comp                 C18
+amp           ne510a       sig    001    du rf-if amp                   C19
+amp           ne511b       sig    002    du diff amp                    C19
+amp           ne515a       sig    003    diff amp                       C19
+amp           ne516k       sig    001    op amp                         C20
+comp          ne518a       sig    001    analog comp                    C20
+comp          ne518k       sig    001    analog comp                    C20
+comp          ne521a       sig    001    du hi-speed diff comp          C21
+comp          ne522a       sig    001    du hi-speed diff comp          C21
+comp          ne526a       sig    000    analog comp                    C21
+comp          ne527a       sig    002    analog volt comp               C22
+comp          ne527k       sig    003    volt comp                      C22
+comp          ne529k       sig    028    volt comp                      C22
+dr            se540l       sig    008    pwr driver                     C23
+tmr           ne555v       sig    008    monolithic timer               C23
+tmr           ne556        sig    051    du timer                       C24
+pll           ne564n       sig    014    pll                            C24
+dcdr          ne567v       sig    000    tone decoder                   C25
+compndr       ne570n       sig    000    compander                      C25
+amp           ne592n       sig    002    video amp                      C25
+amp           ne5532n      sig    001    du low noise op amp            C26
+amp           ne5534       sig    001    du low noise                   C26
+amp           ne5539n      sig    000    ultra hi-freq op amp           C26
+reg           ne5551       sig    029    volt reg                       C27
+reg           ne5552       sig    025    volt reg                       C27
+reg           ne5553       sig    003    du polarity volt reg           C28
+reg           ne5554       sig    012    du polarity volt reg           C28
+reg           ne5555       sig    020    volt reg                       C28
+===           71139        sig    001    -                              C34
+===	      7842	   sig	  001    -				A04
+pci           s2651        sig    002    programmable comm interface    A04
+amp           ua733cn      sig    006    diff video amp                 C29
+amp           ua733f       sig    002    diff video amp                 C29
+reg           sg1524       sigl   003    sw reg                         C30
+reg           sg2501       sigl   005    du volt reg                    C30
+gnr           sy-p6551     syn    000    baud rate gnr                  C31
+amp           836cj        tel    005    op amp                         C31
+===	      csh101a	   ???	  001	 -				C31
+amp           724          ti     001    op amp                         C32
+amp           72088        ti     002    op amp                         C32
+amp           72558p       ti     004    op amp                         C32
+amp           72702        ti     000    op amp                         C33
+amp           72709        ti     004    op amp                         C33
+amp           72710l       ti     000    op amp                         C33
+amp           72710n       ti     000    op amp                         C33
+comp          72711l       ti     001    du diff comp                   C34
+comp          72720        ti     003    du diff comp                   C34
+comp          72733        ti     000    diff vid comp                  C34
+comp          72810l       ti     002    comp                           C35
+comp          72811        ti     003    comp                           C35
+comp          72820        ti     002    comp                           C35
+amp           72l044       ti     000    quad op amp                    C36
+amp           7510l        ti     002    video amp                      C36
+amp           7521n        ti     001    sense amp                      C36
+amp           7522n        ti     000    sense amp                      C37
+amp           7523n        ti     002    sense amp                      C37
+amp           7525n        ti     000    sense amp                      C37
+rec           75107        ti     000    line receiver                  C38
+rec           75108        ti     007    line receiver                  C38
+dr            75109        ti     003    line driver                    C38
+dr            75110n       ti     006    line driver                    C39
+trcvr         75118        ti     001    diff line transceiver          C39
+trcvr         75119        ti     003    diff line transceiver          C39
+rec           75154        ti     004    quad receiver                  C40
+dr            75158        ti     016    line driver                    C40
+trcvr         75160        ti     029    line transceiver               C41
+trcvr         75161n       ti     013    line transceiver               C41
+dr            75365n       ti     007    mos driver                     C41
+dr            75451bp      ti     010    line driver                    C42
+dr            75453bp      ti     005    periph driver                  C42
+dr            75491        ti     013    led display  driver            C42
+dr            75492n       ti     011    led display driver             C42
+nreg          79m05        ti     001    neg volt reg -5                C43
+nreg          79m08        ti     005    neg volt reg -8                C43
+amp           tl062        ti     000    du low pwr op amp              C44
+amp           tl064        ti     000    quad low pwr op amp            C44
+amp           tl081        ti     022    op amp                         C44
+amp           tl082        ti     000    op amp                         C45
+amp           tl084cn      ti     000    quad op amp                    C45
+led           tl489c       ti     006    5-level led                    C45
+		DIGITAL INTEGRATED CIRCUITS
+sr8           2502         amd    059    8-bit registor                 C46
+sr8           2503         amd    002    8-bit registor                 C46
+sr12          2504         amd    000    12-bit registor                C46
+mux           2505         amd    004    comp. mult.                    C47
+alu           2506         amd    001    4-bit logw/latch               C47
+reg           25ls07       amd    001    6-bit registor                 C47
+reg           25ls08       amd    003    4-bit                          C47
+reg           25ls09       amd    008    4-bit registor                 C48
+sr4           25ls10       amd    003    4-bit shift reg.               C48
+mux           25ls14       amd    000    8-bit serial-par               C48
+add           25ls15       amd    002    4-bit add-sub                  C49
+reg8          25ls22       amd    032    8-bit                          C49
+reg8          25ls23       amd    012    8-bit unvrsl                   C50
+mux8          25ls151      amd    005    1-of-8 data selector           C50
+mux           25ls157      amd    000    quad 2-to-1 line               D01
+cntr          25ls163      amd    003    4-bit bin asynch clr           D01
+sr6           25ls174      amd    001    6-bit registor                 D02
+reg4          25ls175      amd    001    4-bit registor                 D02
+encdr         25ls2513     amd    001    3-state output                 D02
+cmpr          25ls2521     amd    030    8-bit                          D03
+mux           25ls2535     amd    012    8-bit                          D03
+cntr          25ls2569     amd    022    4-bit up-down                  D03
+sr            25s07        amd    006    6-bit reg.                     D04
+reg           25s08        amd    002    4-bit reg.                     D04
+reg           25s09        amd    038    4-bit registor                 D04
+sr4           25s10        amd    025    4-bit 3-state                  D05
+ff            25s18        amd    021    quad                           D05
+mvbr          26123        amd    030    dual                           D06
+dr            26ls29       amd    004    quad                           D06
+dr            26ls30       amd    005    line driver                    D07
+dr            26ls31       amd    005    quad                           D07
+rec           26ls32       amd    005    quad diff                      D08
+rec           26ls33       amd    002    quad diff                      D08
+mvbr          26s02        amd    002    dual                           D08
+trcvr         26s12        amd    027    quad bus                       D08
+ram           27ls00       amd    005    256-bit low pwr                D09
+ram           27s03        amd    004    64-bit                         D09
+prom          27s185       amd    006    8k-bit                         D09
+memchp        2841         amd    050    64x4 memory                    D10
+trcvr         2908         amd    020    quad o-c bus                   D10
+seq4          2911apc      amd    003    hi speed                       D10
+trcvr         2912         amd    003    quad                           D11
+pcu           2932         amd    003    prog ctrl unit                 D11
+cntr          2942         amd    001    time-counter                   D11
+reg4          2918         amd    061    one-by-two port                D12
+dr            2965         amd    005    octal dyn ram                  D12
+dr            2966         amd    000    octal dyn ram                  D12
+ram           am29701      amd    006    16x4 3-state                   D13
+ram           29703        amd    043    16x4 3-state                   D13
+ram           9130         amd    000    1024x4n chan stat              D14
+gnr           93s48        amd    058    12 input par                   D14
+ram           s2114h       ami    002    1024x4-bit stat                D14
+ram           2114a1       ami    000    1024x4-bit stat                D15
+dcdr          s2600        ami    001    remote control                 D15
+dcdr          s2601        ami    003    remote control                 D15
+dcdr          s2742        ami    010    remote control                 D16
+encdr         s2743        ami    010    remote control                 D16
+ram           s3103        ami    009    static ttl		        D17
+dac           ad7523       ad     004    cmos 8-bit mltply              D17
+sr32          1003         ea     002    32-bit stat dual               D18
+sr32          1200         ea     004    quad 32-bit dyn                D18
+sr64          1202         ea     003    1-to-64-bit dyn                D18
+sr            1204         ea     002    256-bit dynamic                D19
+dr            1033         cerm   005    driver                         D19
+chkit         dc-003       dec    001    chip kit                       D20
+chkit         dc-004       dec    012    chip kit                       D20
+chkit         dc-005       dec    041    chip kit                       D21
+chkit         dc-005c      dec    005    chip kit                       D21
+chkit         dck11ac      dec    000    chip kit                       D21
+dr            445          di     012    driver                         D22
+ram           f16k-3       f      013    dynamic memory                 D22
+sr64          3305         f      000    64-bit shift reg               D23
+rom           3341         f      031    mos                            D23
+rom           3341         f      048    mos                            D24
+sr            3355         f      001    shift register                 D24
+mux           3708         f      005    quad mos                       D24
+nand          4012         f      032    dual cmos                      D25
+ff            4013         f      016    dual cmos                      D25
+nand          4023         f      007    triple cmos                    D26
+nor           4025         f      003    triple cmos                    D26
+dcdr          4028         f      013    4-bit cmos                     D27
+exor          4030         f      005    quad cmos                      D27
+cntr          4040         f      000    cmos                           D28
+buf           4049         f      000    hex cmos                       D28
+buf           4050         f      024    hex cmos                       D28
+or            4071         f      030    quad cmos                      D29
+ff            4077         f      002    quad excl                      D29
+and           4081         f      004    quad cmos                      D29
+aoi2          4085         f      005    dual 2 wide-2 input            D30
+aoi           4086         f      014    exp cmos                       D30
+nand          4093         f      006    quad cmos                      D30
+ram           4096-3       f      005    mos 4096x1                     D31
+trcvr         4104         f      005    level conv cmos                D31
+cntr          4510         f      004    BCD up-down cmos               D32
+dcdr          4511         f      000    BCD-to-7 cmos                  D32
+mux8          4512         f      008    8 input cmos                   D32
+cntr          4516         f      003    bin up-down cmos               D33
+cntr          4518         f      008    dual 4-bit cmos                D33
+cntr          4520         f      006    4-bit bin cmos                 D33
+mvbr          4528         f      001    dual 1-shot cmos               254
+brg           4702         f      025    bit rate gen. cmos             D34
+par           4703pc       f      000    16x4 fifo cmos                 D35
+ram           4710         f      002    16x4-bit 3-state               D35
+latch         4723         f      007    dual 4-bit cmos                D36
+latch         4724         f      006    8-bit add                      D36
+exnor         34811        f      007    exclusive nor                  D36
+buf           40097        f      020    hex 3-state cmos               D37
+buf           40098        f      030    hex 3-state cmos               D37
+cntr          40160        f      001    4-bit synchronous              D38
+cntr          40161        f      005    4-bit bin asynch clr           D38
+cntr          40162        f      010    4-bit synchronous              D38
+cntr          40163        f      010    4-bit bin synch clr            D39
+ff            40174        f      001    hex d-type with asynch clr     D39
+ff            40175        f      003    quad cmos                      D39
+cntr          40192        f      003    4-bit synchronous              D40
+cntr          40193        f      001    4-bit up-down cmos             D40
+sr            40194        f      013    4-bit bidirect universal       D40
+rom           5033         f      028    read only memory               D41
+ram4          5422         f      002    dual 4 input oc                D41
+ff            9024         f      003    dual ttl                       E15
+sr            9300         f      004    4-bit ttl                      E15
+dcdr          9301         f      011    1-of-10                        E16
+add           9304         f      001    dual ttl                       E16
+mux           9309         f      018    dual ttl                       E16
+mux8          9312         f      022    8 input ttl                    E17
+ff4           9314         f      011    latch ttl                      E17
+cntr          9314         f      003    up bin ttl                     E18
+encdr8        9318         f      015    8 input ttl                    E18
+dcdr          9319         f      009    seq ttl                        E19
+sr            9328         f      061    dual                           E19
+ff            9334         f      023    8-bit adder latch              E29
+reg           9338         f      004    8-bit multiport reg		E20
+dr            9368         f      000    7 seg led driver               E21
+chkr          9401         f      014    16-bit cyclic redundancy       E21
+reg           9407         f      006    data access reg                E22
+osc           9601         f      017    txt oscillator                 E22
+osc           9602         f      004    dual oscillator                E23
+inter         9624         f      006    ttl mos                        E23
+inter         9625         f      003    dual mos ttl                   E24
+dr            9636         f      042    dual cmos ttl                  E24
+rec           9637         f      025    dual ttl                       E25
+dr            9638         f      011    dual ttl                       E25
+ram           93410        f      006    256x1 oc                       E26
+ram           93415        f      039    1024x1 oc                      E26
+ram           93422        f      000    256x4 3-state                  E27
+ram           93425        f      022    1024x1 3-state                 E27
+prom          93426        f      003    program read only memory       E28
+prom          93436        f      002    512x4 oc                       E28
+ram           93471        f      000    4096x1 3-state                 E29
+cntr          93s16        f      010    synchronous                    E29
+cmpr          93s46        f      045    6-bit identity                 E30
+cmpr          93s47        f      009    6-bit identity oc              E30
+gnr           93s62        f      006    9-bit par chk                  E31
+mvbr	1.40  96l02	   f	  072	 dual retrig			E31
+mvbr    2.75  96s02	   f	  142	 dual monostable		E32
+alu           l405         f      003    arith log unit                 E33
+inv           9s04         f      024    hex inverter                   F11
+ff            9s109        f      007    dual                           F12
+memchp        MB8264-15    fuj    001    memory chip                    F13
+sw            mem780p      gi     002    switch                         F13
+===           sl-5-2128    gi     002    -                              F14
+sr32          sl-6-4032    gi     003    shift reg 32 input             F14
+prom          2048-5       h      001    program read only memory       F15
+encdr         6409-9       h      002    manchester dcdr                F20
+strobe        6605-5       h      014    strobe                         F20
+strobe        HDI6600-5    h      023    quad power                     F21
+ram           HM4864-2     h      000    dynamic 65536x1 nmos           F21
+ram           MSM3764-2    oki    000    dynamic 65536x1 nmos           F22
+ram           IMS1400-55   inmos  006    16K x 1                        F22
+ram           IMS1420-45   inmos  000    4K x 4                         F23
+ram           a02          isk    001    256-bit txt                    F23
+mux8          l02          isk    003    txt                            F24
+cntr          s02          isk    001    counter                        F24
+mux           1021         isk    000    txt                            F25
+nor2          4001s        isk    001    quad 2 input                   F25
+inv           4007s        isk    003    dual pair invert               F26
+buf           4009s        isk    003    hex inverting                  F26
+buf           4010s        isk    002    hex noninverting               F27
+nand4         4012s        isk    002    dual 4 input                   F27
+ff            4013s        isk    001    dual w set reset               F28
+ff            4027s        isk    001    dual j-k                       F28
+exor          4030s        isk    002    quad exclusive                 F29
+ram           c1101a       itl    000    mos                            F29
+sr            1402a        itl    001    quad mos                       F30
+sr100         1-507        itl    001    to5                            F30
+ram           2114         itl    020    1024x4-bit stat                F31
+ram           2115         itl    000    1kx1-bit highspd               F31
+ram           2116         itl    000    static 2048x8 nmos             F32
+ram           2147         itl    001    4096x1-bit stat                F32
+ram           2148         itl    000    1024x8-bit stat                F33
+eprom	      2764	   itl    004    ---				F34
+fltr          d2912        itl    002    pcm line filter                F33
+ram           3102         itl    001    256-bit                        F34
+dr            3202         itl    002    driver 265-bit                 F34
+dcdr    4.00  3205         itl    004    transmit/rcvr                  F35
+drrec         3216         itl    001    parallel bus dr.               F35
+ctrl          3222         itl    001    refresh control                F36
+ff6           3404         itl    002    high 6-bit latch               F36
+dac           3408         itl    010    dac                            F37
+rom           3601         itl    003    256x4 oc                       F37
+sw            8018         icl    000    switch                         F38
+ram           8185         itl    000    1024x8-bit stat                F38
+dr            8216         itl    000    4-bit bidirect                 F39
+gnr           8224         itl    000    clock generator                F39
+latch         8282         itl    017    octal                          F40
+gnr     8.00  8284         itl    003    clock gnr and dr               F40
+trcvr         8286         itl    030    octal bus                      F41
+ctrl   25.00  8288         itl    005    bus                            F41
+sw            icl8010      isl    000    quad                           F42
+dr            im5001       isl    001    txt                            F42
+dr            im5011       isl    001    txt                            F43
+ram           im5503       isl    006    256-bit                        F43
+ram           im5523       isl    002    txt                            F44
+rom     7.05  im5600       isl    001    32x8 prom                      F44
+rom     9.75  im5603       isl    014    256x4 1024-bit                 F45
+prom   19.45  im5604       isl    002    512x4 2048-bit                 F45
+prom    7.05  im5610       isl    026    txt                            F46
+rom           im5623       isl    001    256x4 1024-bit                 F46
+prom          im5624       isl    003    512x4 2048-bit                 F47
+mux8          im7108c      isl    001    txt                            F47
+tr            mt8204       mtl    006    tone ringer                    F48
+pal     7.28  16l8         mm     012    octal 16 input                 F48
+pal     7.28  16r8         mm     031    octal 16 input                 F49
+prom    2.40  6301         mm     003    256x4 1K                       F49
+prom    4.30  6305         mm     000    512x4 2K                       F50
+prom    4.30  6306         mm     008    512x4 2K                       F50
+prom    2.50  6331         mm     001    32x8 .25K                      G01
+prom    7.50  6348         mm     004    512x8 4K                       G01
+prom   11.40  6351         mm     001    1024x4 4K                      G02
+prom    6.30  6353         mm     002    1024x4 4K                      G02
+prom    4.96  63s081       mm     003    32x8-bit                       G03
+fifo   30.85  67401        mm     008    64x4-bit expand                G03
+fifo   39.43  67402        mm     005    first-in first-out             G04
+ram           4027-3       mtk    000    4096x1 dynamic                 G04
+ram           4096p        mtk    009    4096x1 dynamic                 G05
+ram           4102         mtk    000    1024x1 static                  G05
+ram           4104p-3      mtk    001    4096x1 static                  G06
+gnr           mk5087       mtk    000    dual tone gnr                  G06
+gnr           mk5089       mtk    000    dual tone gnr                  G07
+gnr           mk5091       mtk    001    dual tone gnr                  G07
+codec         mk5116       mtk    001    u255 law			G08
+dr            mc1067p      mot    000    ttl to mecl                    G13
+dr            mc1068p      mot    006    mecl to ttl                    G13
+dr            mc1582       mot    001    driver                         G17
+rec           mc1584       mot    003    dtl to ttl                     G17
+nor2          mc2501l      mot    001    mcmos                          G18
+reg           mc2502l      mot    001    8-bit successive approx reg    G18
+ff2           mc2503l      mot    002    mcmos                          G19
+nand2         mc3000       mot    016    2 input                        G19
+rom           mc6571       mot    000    128 x (9 x 7) generator        G38
+gnr           mc6575       mot    001    generator                      G39
+ram           mc6664       mot    000    64 x 1 dynamic                 G39
+buf           mc6882al     mot    006    octal buff latch               G40
+nor2          mc14001      mot    006    mcmos                          G40
+nor           mc14002      mot    007    mcmos                          G41
+nand2         mc14011      mot    009    mcmos                          G41
+nand4         mc14012      mot    009    mcmos                          G42
+ff2           mc14013      mot    011    mcmos                          G42
+sr4           mc14015      mot    011    mcmos                          G43
+sw            mc14016      mot    013    with driver 4xSPST cmos        G43
+rec           mc14457      mot    004    transmitter/receiver           G44
+hex           mc14490      mot    000    cmos                           G44
+exor          mc14507      mot    004    mcmos                          G45
+dr      1.87  mc14511      mot    007    BCD-to-7 seq                   G45
+mvbr          mc14538      mot    014    64-bit                         G46
+sr            mc14557      mot    001    1-to-64-bit                    G46
+add           mc17482      mot    002    adder                          G47
+add           mc27482      mot    006    adder                          G47
+dr            dh0008c      ns     002    3 amp relay                    G49
+reg8          dm2502       ns     002    8-bit ttl                      G50
+reg8          dm2503       ns     002    8-bit ttl                      G50
+buf      .59  dm8093       ns     059    tri-state quad                 H01
+buf      .59  dm8094       ns     027    tri-state quad                 H01
+buf           dm8097       ns     001    tri-state hex                  H02
+inv           dm8098       ns     003    tri-state hex                  H02
+buf           dm81ls97     ns     002    tri-state octal                H03
+buf           dm81ls98     ns     012    tri-state octal                H03
+cmpr          dm8131       ns     007    6-bit with high                H04
+cmpr          dm8136       ns     020    6-bit with high                H04
+reg           dm8542       ns     003    tri-state quad                 H05
+ff4           dm8550       ns     001    flip-flop                      H05
+ff4           dm8551       ns     010    tri-state bin                  H06
+cntr    4.00  dm8556       ns     070    tri-state bin                  H06
+cntr          dm8563       ns     000    bin up-down counter            H07
+sr8           dm8570       ns     025    srl-in pmp-out                 H07
+sr8           dm8590       ns     040    para-in,srl-out                H08
+reg           dm85s68      ns     005    16x4 reg file                  H08
+reg           dm86ls52     ns     018    8-bit dual rank                H09
+sr            dm86ls62     ns     000    8-bit dual rank shift reg      H09
+dr            mh0026       ns     006    2 phase clock                  H10
+mux           mm454f       ns     001    flat                           H10
+sr50          mm502        ns     002    to 5                           H11
+mux           mm554f       ns     001    multiplexer                    H11
+sr100         mm5006       ns     001    to 5                           H12
+sr            mm5027       ns     002    shift reg                      H12
+ram           mm5280       ns     002    4096-bit dynamic               H13
+gnr           mm5307       ns     001    baud rate generator            H13
+osc           mm5369       ns     000    17 stage mask                  H14
+gnr           mm5554       ns     003    generator                      H14
+gnr           mm5555       ns     004    mos                            H15
+gnr           mm5556       ns     002    mos                            H15
+===           mm5601       ns     000    -                              H16
+dr            nh0007       ns     001    cpld mos clock                 I16
+sw            nh0019       ns     001    dual compatable                I16
+upclk         msm5832      oki    000    real-time cmos                 I17
+dr            sp8647b      pl     001    driver                         I17
+scrc          7633         pmi    000    sound circuit                  I18
+dr            ra1245       rad    001    txt                            I18
+rec           ra1246       rad    002    txt                            I19
+ff2           rf3120       ray    003    dual flip-flop                 I19
+ff2           rf3122       ray    001    dual flip-flop                 I20
+ff2           rf3132       ray    004    dual flip-flop                 I20
+ff3           rf3222       ray    001    triple latch                   I21
+ff2           rf3230       ray    002    dual d-type                    I21
+nand2         rg3220       ray    003    quad 2 input                   I22
+inv           rg3380       ray    010    hex inverter                   I22
+dr            rg7522       ray    004    quad 2 input                   I23
+sr4           rl70d        ray    004    4-bit storage                  I23
+osc           rm288d       ray    003    oscillator                     I24
+ram64         rr6100       ray    004    64-bit                         I24
+pmux10        r29693       ray    007    10-input quad 8-to-1 3-state 	I25    
+nor3     .40  cd4000ae     rca    016    dual 3 input                   I25
+nor2     .40  cd4001ae     rca    012    quad 2 input                   I26
+nor4          cd4002       rca    006    dual 4 input                   I26
+cntr    2.01  cd4004ae     rca    001    cmos                           I27
+sr18    1.40  cd4006ae     rca    014    18 stage stst                  I27
+inv      .40  cd4007ae     rca    025    dual pair invert               I28
+add     1.25  cd4008ae     rca    025    4-bit full adder               I28
+buf           cd4009       rca    005    hex inverting                  I29
+buf           cd4010       rca    000    hex noninverting               I29
+nand2    .40  cd4011ae     rca    016    quad 2 input                   I30
+nand4    .40  cd4012ae     rca    027    dual 4 input                   I30
+ff2      .77  cd4013       rca    022    dual d-type                    I31
+sr8     1.25  cd4014       rca    026    8 stage stat                   I31
+sr4           cd4015       rca    012    dual 4 stage stat              I32
+sw4      .77  cd4016       rca    014    quad bilat switch              I32
+dcdr    1.25  cd4017ae     rca    025    decade counter                 I33
+cntr    1.12  cd4018ae     rca    018    divide-by -'N'                 I33
+andor    .66  cd4019ae     rca    030    quad select gate               I34
+cntr    1.45  cd4020ae     rca    013    14 stage binary                I34
+sr8           cd4021ae     rca    009    8 stage static                 I35
+cntr    1.25  cd4022ae     rca    025    divide-by-8                    I35
+nand3    .40  cd4023ae     rca    021    triple 3 input                 I36
+cntr          cd4024       rca    006    7 stage binary                 I36
+nor3          cd4025       rca    030    triple 3 input                 I37
+cntr          cd4028       rca    028    up down counter                I37
+exor          cd4030       rca    034    quad exclusive                 I38
+add     2.18  cd4032ae     rca    029    pos log adder                  I38
+and3    1.86  cd4037ae     rca    026    triple by-phase                I39
+add     2.18  cd4038ae     rca    030    neg log adder                  I39
+latch   1.06  cd4042ae     rca    011    quad clocked                   I40
+pll           cd4046       rca    000    micropower                     I40
+mvbr    1.78  cd4047ae     rca    002    monostable/astable             I41
+buf      .77  cd4049       rca    031    hex inverting                  I41
+buf           cd4050       rca    008    hex non-inverting              I42
+mux           cd4051       rca    001    single 8 channel               I42
+mux           cd4052       rca    000    4 channel diff                 I43
+mux           cd4053       rca    000    triple 2 channel               I43
+dr            cd4055       rca    000    BCD-to-7 segment               I44
+cntr          cd4060       rca    008    14 stage binary                I44
+sw            cd4061       rca    000    switch                         I45
+cmpr          cd4063       rca    001    4-bit mag comp                 I45
+sw       .83  cd4066       rca    047    quad bilat switch              I46
+inv           cd4069       rca    030    hex inverting                  I46
+or2      .45  cd4071       rca    055    quad 2 input                   I47
+or4      .38  cd4072       rca    027    dual 4 input                   I47
+and3     .45  cd4073       rca    048    triple 3 input                 I48
+or3           cd4075       rca    020    triple 3 input                 I48
+nor           cd4077       rca    029    quad exclusive                 I49
+nor8          cd4078       rca    059    8 input gate                   I49
+and2     .39  cd4081       rca    067    quad 2 input                   I50
+nand4         cd4082       rca    000    dual 4 input                   J01
+aoi2          cd4085       rca    000    dual 2 wide-2 input            J01
+aoi2          cd4086       rca    000    exp 4 wide-2 input             J02
+nand2         cd4093       rca    010    quad 2 input                   J02
+cntr          cd4518       rca    025    dual BCD up                    J03
+cntr          cd4520       rca    012    dual bin up cntr               J03
+nand3         ta5361       rca    003    cmos                           J04
+ff2           ta5362       rca    001    cmos                           J04
+cntr          ta5385       rca    000    to5                            J05
+ctg           ta5388       rca    000    cmos                           J05
+ram           ta5406       rca    003    cmos                           J06
+nor2          ta5455       rca    000    cmos                           J06
+nor4          ta5456       rca    001    cmos                           J07
+sr            ta5459       rca    000    txt                            J07
+tmr           ta6778       rca    001    cosmos                         J08
+sr            2503v        sig    010    1024-bit mplx dyn              J08
+sr            2522v        sig    000    dual 132-bit stat              J09
+gnrchkr       2653         sig    003    polynominal gen checker        J09
+osc           8162         sig    003    oscillator                     J10
+cmpr          8200         ns     001    4-bit digital                  J10
+mux8          8210         ns     004    multiplexor                    J11
+par8          8220         ns     005    parity generator               J11
+dmux          8230         ns     005    3-state                        J12
+mux8          8231         sig    004    8 input dgtl                   J12
+mux2          8233         sig    044    2 input 4-bit                  J13
+mux2          8234         sig    009    oc 2 input 4-bit               J13
+exor          8241         sig    007    quad exclusive                 J14
+exnor         8242         sig    005    quad exclusive                 J14
+mux2          8266         sig    017    2 input 4-bit                  J15
+mux2          8267         sig    004    2 input 4-bit                  J15
+sr4           8270         sig    006    4-bit shift reg                J16
+sr4           8271         sig    000    4-bit shift reg                J16
+sr            8273         sig    006    10-bit                         J17
+sr            8274         sig    011    10-bit                         J17
+ff4           8275         sig    009    quad bstbl latch               J18
+sr8           8276         sig    006    8-bit shift reg                J18
+cntr          8284         sig    004    synchronous                    J19
+cntr          8285         sig    003    dec synchronous                J19
+trcvr         8304         ns     020    8-bit                          J20
+dr            8800         ns     004    to 5                           J20
+exp4          8806         sig    015    expander 4 input               J21
+nand8         8808         sig    001    nand gate 8 input              J21
+nor4          8815         sig    003    dual 4 input                   J22
+nand4         8816         sig    013    nand gate 4 input              J22
+ff            8825         sig    054    flip-flop                      J23
+ff2           8826         sig    055    flip-flop 2 input              J24
+dr            8830         ns     022    dual diff line                 J25
+dr            8831         ns     007    tri-state quad                 J25
+trcvr         8835         ns     008    quad 3-state                   J26
+rec           8837         ns     009    hex unified bus                J26
+dr            8838         ns     011    quad unified bus               J27
+adi           8840         sig    011    -                              J27
+dr4           8855         sig    019    driver                         J28
+nand3         8870         sig    058    3 input                        J28
+nor3          8875         sig    005    3 input                        J29
+nand2         8880         sig    050    high v 7 segment               J29
+nand2         8881         sig    018    quad 2 input                   J30
+ram           82s06        sig    019    random access memory           J30
+ram           82s08        sig    000    random access memory           J31
+ram           82s11        sig    000    random access memory           J31
+ram           82s16        sig    002    256-bit bipolar                J32
+ram           82s21        sig    001    static 32x2                    J32
+prom          82s23        sig    019    256-bit bipolar                J33
+prom          82s27        sig    005    program read only memory       J33
+mux           82s30        sig    000    8 input dgtl                   J34
+mux           82s32        sig    003    8 input dgtl                   J34
+mux           82s33        sig    017    2 input 4-bit                  J35
+mux           82s34        sig    008    2 input 4-bit                  J35
+dcdr          82s50        sig    003    3-to-8                         J36
+dcdr          82s52        sig    012    4-to-dec                       J36
+gnr           82s62        sig    002    9-bit                          J37
+mux           82s66        sig    010    2 input 4-bit                  J37
+add           82s83        sig    001    4-bit BCD add                  J38
+prom          82s115       sig    000    4096-bit bipolar               J38
+prom    2.75  82s123       sig    071    256-bit bipolar                J39
+prom    3.00  82s129       sig    095    1024-bit bipolar               J39
+prom          82s131       sig    029    2048-bit bipolar               J40
+prom          82s137       sig    001    4096-bit bipolar               J40
+prom          82s185       sig    006    8192-bit bipolar               J41
+ff2           8h22         sig    024    flip-flop                      J41
+nand3         8h70         sig    011    3 input                        J42
+nand2         8h80         sig    011    2 input                        J42
+inv           8h90         sig    005    inverter                       J43
+dr     17.00  8t09         sig    015    3-state quad bus               J43
+ff            8t10         sig    009    3-state quad bus               J44
+dr     18.22  8t13         sig    005    dual line drive                J44
+rec           8t14         sig    001    3 line rec                     J45
+dr            8t15         sig    006    dual commun.                   J45
+rec    13.10  8t16         sig    005    dual commun.                   J46
+mvbr          8t20         sig    000    bidirctional, monostable	J46     
+dr            8t23         sig    003    dual line drive                J47
+rec           8t24         sig    003    triple line                    J47
+amp           8t25         sig    002    3-state dual                   J48
+dr     11.75  8t26         sig    036    3-state quad bus               J48
+dr            8t28         sig    008    3-state quad bus               J49
+ctrl          8t30         sig    000    dual ttl-dtl                   J49
+trcvr         8t34         sig    012    quad bus 3-state               J50
+dr     20.24  8t37         sig    012    hex bus receiver               J50
+trcvr         8t38         sig    031    quad bus oc                    K01
+dcdr          8t74         sig    000    decoder                        K01
+===           8t75         sig    001    -                              K02
+inv    17.86  8t90         sig    008    quad 2 input                   K02
+inv           8t93         sig    045    high speed hex                 K03
+inv           8t94         sig    002    high hex with oc               K03
+buf     4.10  8t97         sig    010    high hex 3-state               K04
+inv           8t98         sig    051    high hex 3-state               K04
+dtr           8t363        sig    003    dual zero cross                K05
+rec           8t380        sig    048    quad bus recvr                 K05
+nor2          sp380        sig    008    2 input nor gate               K06
+amp           3006s        spr    001    IF amplifier                   K06
+gnr           5016         sm     000    dual baud rate                 K07
+ram           21h12        syn    006    256xs4-bit stat                K07
+sw            cag6         td     001    switch                         K08
+sw            cag14        td     001    switch                         K08
+and           cag45        td     001    and gate                       K09
+and           cag48        td     001    and gate                       K09
+sw            cda28a       td     000    switch                         K10
+s&h           csh101       td     000    sample & hold                  K10
+===           cs4r101      td     000    -                              K11
+inv           4934         ti     024    inverter                       K11
+inv           4935         ti     000    inverter                       K12
+prom          tbp18s42     ti     049    3-state output                 N09
+prom          tbp24s10     ti     017    256x4                          N10
+prom          tbp24s41     ti     014    1024x4                  	N10
+prom          tbp24s81     ti     007    2048x4                  	N11
+prom          tbp28s42     ti     008    3-state output                 N11
+sr            tms3002      ti     003    shift register                 N12
+sr            tms3003      ti     000    shift register                 N12
+ram           tms4003      ti     000    random access memory           N13
+fifo          tms4024      ti     003    first-in, first-out            N13
+ram           tms4036      ti     001    random access memory           N14
+ram           tms4060      ti     006    random access memory           N14
+ctrl          tms9902      ti     005    controller                     N15
+modem         tms99532     ti     001    FSK NMOS                       N15
+===           sn1284       ti     009    -                              N16
+conv          ec2536       ti     007    converter                      N16
+conv          ec2537       ti     006    converter                      N17
+ram           27a          we     002    random access memory           N17
+ram           28a          we     003    random access memory           N18
+ram           a38a         we     012    static ram                     N18
+nand8-4       41aa         we     005    dual gate                      N19
+prom          am2716-IDC   amd    000    erasable                       BC72
+alu           am2901bpc    amd    002    4-bit slice cascadable         BC01
+ctrl          am2910dc     amd    000    4-bit micro slc                BC02
+ctrl          am2904pc     amd    007    shift control                  BC01
+ctrl          am2914dc     amd    001    vectored                       BC02
+ctrl          am2930dc     amd    002    prog control unit              BC02
+cntr          am2940dc     amd    004    high speed                     BC03
+iop           am2950dc     amd    001    8-bit parallel i/o port	BC03
+ercc          am2960dc     amd    003    16-bit error correct dtct	BC03  
+ctrl          am9513dc     amd    000    system timing controller 	BC04    
+ctrl          am9517a      amd    002    dma                            BC04
+uintr         am9519pc     amd    001    unvrsl inter                   BC04
+gnr           s68047p      ami    000    video disp generator           BC04
+memchp        33511dc      f      002    40x9 mos                       BC05
+ctrl          3854pc       f      002    dma                            BC06
+===           mb502a       f      003    -                              BC06
+memchp        9035         f      002    64-bit r/w                     BC07
+cntr          9306         f      002    BCD up/down                    BC07
+alu           9340         f      001    4-bit                          BC07
+ram           93419dc      f      031    64x9-bit                       BC08
+ram           93419dc      f      009    64x9-bit                       BC58
+gnr           ay3-8910     gi     000    sound                          BC09
+gnr           ay3-8912     gi     000    sound                          BC09
+uart          mu-6-2281    h      001    cmos                           BC10
+uart          hd3-6402-9   h      006    cmos                           BC10
+lsi           hd3-6402-9   h      012    cmos                           BC11
+lsi           hd1-6402-9   h      007    cmos                           BC12
+ram           HM6116P-3    h      000    hi speed stat                  BC13
+prom          c2708        itl    000    program read only memory       BC14
+eprom         d2716-1      itl    000    35ons                          BC35
+eprom         d2732a       itl    000    4kx8 UV erasable               BC15
+prom          27128        itl    001    16kx8 V erasable               BC67
+===	      2816	   itl	  006	 -				BC59
+codec         d2910        itl    008    microprogram                   BC16
+encdr         3214p        itl    000    priority                       BC17
+ram           3242         itl    002    dynamic                        BC17
+micro         d8086        itl    000    16-bit micro                   BC17
+proc          p8088        itl    000    8-bit micro                    BC18
+ram           d8202        itl    000    control                        BC19
+usart         d8251        itl    011    programmable comm              BC19
+ptmr          p8253        itl    000    programmable interval timer	BC19
+ctrl          p8237-2      itl    000    dma                            BC20
+ctrl          8237a-5      itl    002    dma                            BC71
+ptmr          p8253        itl    003    programmable interval timer	BC20 
+prog          p8255e       itl    002    program inter.                 BC21
+cntr          p8257        itl    004    dma                            BC73
+cntr          p8273        itl    003    programmable                   BC21
+cntr          p8275        itl    000    crt                            BC22
+ctrl          p8279        itl    000    keyboard display control	BC22 
+conv          7104-16      int    001    16-bit 3-state                 BC22
+uart          im6402       int    005    asynchronous                   BC23
+prom          d27128       int    000    16x8 UV erasable               BC65
+ram           4118-2       mot    000    8k                             BC24
+ram           4802-p       mot    005    8-bit                          BC24
+dialer        5170n        mot    000    dialer, microcomputer          BC24
+dcdr          8820a        mit    002    cmos                           BC25
+prom          6340d        mit    001    bit                            BC25
+mux           mc3212ap     mot    012    mem. add.                      BC26
+ctrl          mc3480l      mot    005    dyn mem                        BC27
+uart          mc68b001     mot    000    microproc                      BC27
+uart          mc68b50p     mot    000    microproc                      BC27
+up            mc6802p      mot    000    w/c & ram                      BC28
+up            mc6809p      mot    001    chip                           BC28
+adpt          mc6821p      mot    003    periph interface adapt		BC29
+ptmr          mc6840p      mot    003    programmable timer             BC29
+ctrl          mc6843l      mot    001    floppy-disk                    BC29
+ctrl          mc6844l      mot    001    access(dmac)                   BC30
+ctrl          mc6845l      mot    000    crt                            BC30
+adpt          mc6850p      mot    003    asynch interface adapt		BC30
+ssda          mc6852p      mot    003    synch serial data adapt	BC31
+ctrl          mc6854p      mot    003    advanced data link control     BC31
+eprom         mc68701      mot    001    2k MCU                         BC64
+gnr           mc14411p     mot    001    baud rate                      BC32
+conv          mc14433      mot    000    3.5 digit, integrating         BC33
+rec           mc14458      mot    005    receiver                       BC33
+reg           dm2504       ns     002    12-bit                         BC34
+cntr          ins8250n     ns     001    asynchronous comm.             BC34
+u-law         mm58100d     ns     001    use w/f3700d                   BC36
+proc          mm58167      ns     000    real time clock                BC36
+reg           mm74c905     ns     001    12-bit                         BC37
+ctrl          d765c        nec    001    floppy-disk                    BC37
+ram           msm2128-ias  oki    000    16-K nmos                      BC38
+ram     9.36  cd4036ad     rca    026    4x8-bit                        BC39
+mux           cd4057be     rca    000    demplxer                       BC39
+mux     1.57  cd4097be     rca    041    demplxer                       BC40
+dcdr          cd4514be     rca    014    high output                    BC40
+dcdr          cd4515bd     rca    010    low output                     BC41
+rom           dq5213       seeq   009    erasable rom                   BC63
+pci           2651I        sig    007    programmable comm interface	BC41
+ram           n82s09       sig    007    576-bit ttl 64x9               BC42
+adpt          n82s100      sig    003    periph interface adapt		BC42
+array16       n82s103      sig    012    16-input field prog array	BC43    
+seq           n82s105      sig    001    logic                          BC43
+iop           n8t31n       sig    002    8-bit bidirectional		BC44    
+ram           n8x60n       sig    000    fifo ram emulator 12-bit 	BC44    
+micro         n8x300I      sig    000    microprocessor                 BC44
+epci          com2502p     smc    000    synch/asynch w/baud rate gnr	BC45 
+gnr           sn74s181n    ti     030    alu/funct                      BC61
+gnr           sn74s181n    ti     025    alu/funct                      BC62
+ram           tmm20I6p-1   toshib 000    static                         BC52
+cor           tdc-1023     trw    001    correlator                     BC52
+buf           wd1510e-00   wd     000    lifo/fifo                      BC53
+flpy          fd1791b      wd     002    floppy-disk-chip               BC53
+flpy          fd1795b      wd     001    floppy disc control/format	BC53    
+ctrl          sd1933       wd     001    data link                      BC54
+encryp        wd2001f      wd     001    data encryption device         BC54
+iop           z80a         z      000    I-O port	                BC55
+cpu           z80b         z      000    central process unit           BC55
+ram           z6132-4ps    z      000    4K                             BC56
+micro         z8001cs      z      000    16-bit                         BC56
+ctrl          z8030ps      z      002    communication                  BC57
+micro         z8671ps      z      000    microcomputer                  BC57
+ctrl          mc68b44p     mot    002 	 8-bit dma controller		BC73  
+===           mk4801an-55  mstk   023	 -				BC59
+===   	      93l422	   f	  010	 -				BC74
+			DIODES/LEDS
+
+Company		Part#		Description		Quantity
+monsanto	MV9101		edge card lite assembly	2
+monsanto	MV9104		edge card lite assembly	0
+motorola	MBD102		hot carrier diode	3
+motorola	MBD501		hot carrier diode	10
+motorola	MBD502		hot carrier diode	4
+motorola	MBD701		hot carrier diode	12
+motorola	MBD702 		hot carrier diode	5
+motorola	MBD5300		hot carrier diode	4
+motorola	MBD5400		hot carrier diode	2
+motorola	MCL1300	0.5ma	current regulator diode	50
+motorola	MCL1301 1.0ma	current regulator diode	86
+motorola	MCL1302	2.0ma	current regulator diode	6
+motorola	MCL1303 3.0ma	current regulator diode	75
+motorola	MCL1304 4.0ma	current regulator diode	49
+motorola	MLD55		visible red led		0
+motorola	MSD6101		dual switch diode	12
+motorola	MSD6150		dual switch diode	12
+motorola	MZ2360		forward reference diode 33
+motorola	MZ2361 1.5v	forward reference diode	131
+motorola	MZ2362 2.1v	forward reference diode	14
+national	NSL4944		led			0
+rca		SG2001		single diode inj. laser	0
+rca		SG2001a		single diode inj. laser	0
+siliconix	CL1020		current limited diode	12
+siliconix	CL2210		current limited diode	3
+siliconix	CL2220		current limited diode	2
+siliconix	CL4720		current limited diode	8
+siliconix	CR033		current regulator diode	4
+siliconix	CR160		current regulator diode	8
+texas inst	650C0 3.7v	reference diode		1
+texas inst	651C5 5.0v	reference diode		3
+motorola	1N270		gremanium diode		0
+motorola	1N821 6.2v	zener diode		18
+fiarchild	1N4148		small signal diode	30 
+fairchild	1N4606		silicon switching diode	6
+fairchild	1N4607		silicon switching diode	8 
+fairchild	1N4608		silicon switching diode	8 
+motorola	1N4611a		diode			5
+motorola	1N4733		zener diode		75
+motorola	1N4734		zener diode		50
+motorola	1N4735 6.2v	zener diode		40
+texas inst	1N4742a 12v	silicon volt reg diode	30
+motorola	1N4746a		zener diode		11
+fairchild	1N4747a		zener diode		11
+motorola	1N5221 2.4v	zener diode		0
+motorola	1N5226 3.3v	1/2 watt zener diode	6
+motorola	1N5227 3.6v	zener diode		0
+motorola	1N5228 3.9v	zener diode		12
+motorola	1N5231 5.1v	1/2 watt zener diode	25
+motorola	1N5233 6.0v	zener diode		4 
+motorola	1N5283 0.22ma	current regulator diode	13
+motorola	1N5305 2.00ma	current regulator diode	11
+motorola	1N5307 2.4ma	current regulator diode	12
+motorola	1N5309 3.00ma	current regulator diode	41
+motorola	1N5312 3.90ma	current regulator diode	16
+motorola	1N5314 4.70ma	current regulator diode	4
+motorola	1N5334a 3.6v	5 watt zener diode	13
+motorola	1N5335a 3.9v 	5 watt zener diode	0
+motorola	1N5338a 5.1v	5 watt zener diode	6 
+motorola	1N5340a 6.0v	5 watt zener diode	7 
+motorola	1N5342a 6.8v	5 watt zener diode	11
+motorola	1N5349a 12v	5 watt zener diode	7 
+motorola	1N5373a 68v	5 watt zener diode	4
+motorola	1N9678 18v	.4 watt zener diode	0
+
+motorola        MZ4626          Zener diodes                have bin/not listed
+motorola        IN5297          current regulator diodes    have bin/not listed
+ 
+
+		    TRANSISTORS
+
+Company		Part#	Specifications		Quantity	Bin #
+motorola	2N3904	NPN 80v			149         	T1
+motorola	2N4931	PNP 250v		1		T1
+fairchild	2N4946	NPN 80v			10		T1 
+fairchild	2N5001	PNP 35w 100v		20 		T1
+fairchild	2N5023	PNP 30v			1		T1
+fairchild	2N5038	NPN 140w 150v		4		T1
+fairchild	2N5084	NPN 35w 120v		25		T1
+motorola	2N5087	PNP 50v			88		T1
+fairchild	2N5149	PNP 1.0w 100v		3		T1 
+fairchild	2N5150	NPN 1.0w 100v		3		T1
+fairchild	2N5153	PNP 1.0w 100v		0		T1
+fairchild	2N5154	NPN 1.0w 100v		6		T1  
+RCA		2N5179	NPN 30v			0		T1
+RCA		2N5180	NPN 30v			4		T1
+RCA		2N5181	NPN 45v			2		T1
+RCA		2N5182	NPN 45v			0		T1
+RCA		2N5183	NPN 18v			3		T1
+RCA		2N5184	NPN 20v			3		T1
+RCA		2N5185	NPN 120v		3		T1
+RCA		2N5186	NPN 10v			4		T1
+RCA		2N5187	NPN 25v			3		T1
+RCA		2N5188	NPN 60v			3		T1
+RCA		2N5189	NPN 60v			22		T1
+motorola	2N5192	NPN 80v			10		T1
+motorola	2N5195	PNP			12		T1
+fairchild	2N5243	PNP 30v			8 		T1
+??		2N5248	N-Chan 30v		0		T1
+fairchild	2N5249	NPN 70v			7		T1
+fairchild	2N5256	PNP 40v			8		T1
+RCA		2N5262	NPN 75v			5		T1
+fairchild	2N5321	NPN/MET TO-5 Power	5		T1
+fairchild	2N5323	NPN/MET TO-5 Power	5		T1
+texas inst	2N5333	PNP 20v			1		T1
+motorola	2N5335	NPN 6.0w 80v		3		T1
+motorola	2N5347	NPN 60w 80v		6		T1
+motorola	2N5357	PNP 300v		2		T1
+texas inst	2N5389	NPN 100w 300v		1		T1
+texas inst	2N5390	NPN 15w 120v		1		T1
+RCA		2N5457	N-Chan 25v jfet		0		T1
+RCA		2N5497	NPN 50w 90v		2		T1
+texas inst	2N5549	N-Chan 40v jfet		0		T1
+motorola	2N5555	N-Chan 25v jfet		0		T1
+motorola	2N5638	N-Chan 30v jfet		0	  	T1
+motorola	2N5680	NPN 120v		7	 	T1
+motorola	2N5682	PNP 120v		3		T1
+fairchild	2N5732	NPN 75w 100v		1		T1
+??		2N5763	P-Chan 65v		0		T1
+motorola	2N5841	NPN 20v			2		T1
+motorola	2N5845A	NPN/PLA 60v		12		T1
+fairchild	2N5961	NPN/PLA 60v		18		T1
+fairchild	2N5963	NPN/PLA 30v		36		T1
+motorola	2N6036	PNP			0		T1
+motorola	2N6039	NPN			22		T1
+motorola	2N6040	Silicon Power		5		T1
+motorola	2N6042	Silicon Power		1		T1
+motorola	2N6043	Silicon Power		0		T1
+motorola	2N6045	Silicon Power		1		T1
+motorola	2N6055	Silicon Power		6	 	T1
+motorola	2N6067	PNP Silicon Power	25		T1
+RCA		2N6354	NPN Silicon		4		T1
+siliconix	2N6658	VMOS Power		0		T1
+siliconix	2N6659	VMOS Power		0		T1
+siliconix	2N6660	VMOS Power		0		T1
+siliconix	2N6661	VMOS Power		0		T1
+siliconix	VN10KM	VMOS			3		T1
+general elec	D29E7	PNP			21		T1
+general elec	D29E10	PNP			21		T1
+general elec	D33D27	NPN			22		T1
+general elec	D33D30	NPN			25		T1
+general inst	2N385	NPN 25v			34		T1
+fairchild	2N871	NPN 100v		4		T1
+motorola	2N1131				4		T1
+RCA		2N1301	PNP 13v			37		T1
+philco		2N1499B	PNP 30v			14		T1
+motorola	2N1545				2		T1
+motorola	2N1546				2		T1
+RCA		2N1605				2		T1
+motorola	2N2060	NPN 100v		1		T1
+fairchild	2N2219	NPN 60v			42		T1
+motorola	2N2219A	NPN 75v			0		T1
+motorola	2N2222	NPN 60v			0		T1
+lansdale	2N2374	PNP 35v			6		T1
+texas inst	2N2497	P-Chan 20v jfet		0		T1
+texas inst	2N2499	P-Chan 20v jfet		1		T1
+??		2N2714	NPN 18v			15		T1
+motorola	2N2906	PNP 40v			0		T1
+motorola	2N2907	PNP 40v			0		T1
+motorola	2N3019	NPN 140v		0		T1
+motorola	2N3053	NPN 60v			0		T1
+RCA		2N3055	NPN 115w 100v		0 		T1
+??		2N3391	NPN 25v			16		T1
+??		2N3392	NPN 25v			26		T1
+texas inst	2N3421	NPN 125v		9		T1
+motorola	2N3439	NPN 350v	 	1		T1            
+motorola	2N3501	NPN 150v		0		T1
+motorola	2N3509	NPN 40v			2		T1
+fairchild	2N3563	NPN 30v			0		T1
+fairchild	2N3566	NPN 40v			0		T1
+motorola	2N3635	PNP 40v			0		T1
+fairchild	2N3638	PNP 25v			19		T1
+fairchild	2N3639	PNP 6.0v		7		T2
+fairchild	2N3640	PNP 12v			16		T2
+fairchild 	2N3643	NPN 30v			45		T2
+fairchild	2N3645	PNP 60v			152		T2
+fairchild	2N3646	NPN 40v			75		T2
+texas inst	2N3703	PNP 50v			67		T2
+texas inst	2N3716	NPN 100v		0		T2
+motorola	2N3720	PNP 60v			0		T2
+fairchild	2N3734	NPN 50v			0		T2
+motorola	2N3739	NPN 20w 325v		0		T2
+motorola	2N3792	PNP 150w 80v		0		T2
+motorola	2N3799	PNP 60v			1		T2
+motorola	2N3805A	PNP 60v			2		T2
+motorola	2N3904	NPN 60v			0		T2
+motorola	2N3906	PNP 40v			23 		T2
+motorola	2N3960	NPN 20v			2		T2
+texas inst	2N3993	P-Chan 25v jfet		6		T2
+RCA		2N4036	PNP Medium Power	2		T2
+RCA		2N4037	PNP Medium Power	1		T2
+fairchild	2N4122	PNP 40v			10		T2
+general inst	2N4141	NPN 60v			73		T2
+fairchild	2N4250A	PNP/PLA 60v		81		T2
+texas inst	2N4254	NPN 30v			7		T2
+fairchild	2N4258	PNP 12v			200		T2
+motorola	2N4261	PNP 15v			3		T2
+fairchild	2N4275	NPN 40v			125		T2
+fairchild	2N4313	PNP 12v			66		T2
+fairchild	2N4354	PNP 60v			4		T2
+fairchild	2N4355	PNP 60v			60		T2 
+fairchild	2N4356	PNP 80v			60		T2
+motorola	2N4398	PNP 200w 40v		1		T2
+motorola	2N4399	PNP 200w 60v		0		T2
+motorola	2N4409	NPN 80v			2		T2
+motorola	2N4410	NPN 120v		0		T2
+fairchild	2N4877	NPN 10w 60v		7		T2
+fairchild	2N4890	PNP 60v			0		T2
+fairchild	2N4917	PNP 30v			22		T2
+motorola	2N4920	PNP 30v			3		T2
+motorola	2N4923	NPN 80v			3		T2
+motorola	2N4927	NPN 250v		0		T2
+motorola	2N4929	PNP 150v		1		T2
+fairchild	EN871	NPN 100v		2		T2
+fairchild	EN2369A	NPN 40v			16		T2
+fairchild	EN2484	NPN 60v			5		T2
+fairchild	EN3014	NPN 40v			2		T2
+fairchild	FT3569	NPN 80v			0		T2
+fairchild	FT4019	PNP 45v			4 		T2
+fairchild	FT4355	PNP 60v			40		T2
+fairchild	FT3643	NPN			1		T2
+fairchild	FT50	NPN			4		T2
+fairchild	FT5041	PNP 40v			6		T2
+fairchild	SDL345	NPN 36w 55v		6		T2
+fairchild	SE4010	NPN 30v			0		T2
+fairchild	SE4021	NPN 45v			0		T2
+fairchild	SE4022	NPN 30v			0 		T2
+fairchild	SE5006	NPN 40v			0		T2
+fairchild	SE6021	NPN 80v			30		T2
+fairchild	SE7057	NPN/MET 450v		1		T2
+fairchild	SE9080	NPN 33w 60v		4		T2
+fairchild	SE9081	NPN 33w 60v		3		T2
+fairchild	SE9302	NPN			4		T2
+fairchild	SE9402	PNP			6		T2
+general elec	D28C7				3		T2
+general elec	D28D2				12		T2
+general elec	D28D10				3		T2
+mepco		D14G-02-101J			20		T2
+mepco		D14M-05-102J			20		T2
+mepco		D14M-05-501J			20		T2
+ir		IRF100	high current		0		T2
+motorola	MAC77-4	si switch		2		T2
+ir		IRFD110	hexdip N-Chan		0		T2
+ir		IRFD9120 hexdip P-Chan		0		T2
+ir		IRFD120 mosfet N-Chan		37- no bin
+ir		IRFD9213 			0 - no bin
+motorola	MD8001	NPN 40v			3		T2
+motorola	MD8003	NPN 60v			2		T2
+motorola	MFE3002	N-Chan 30v		0		T2
+motorola	MFE3003	P-Chan 30v		0		T2
+motorola	MHP401	hybrid ttl to mos cl dr	1		T2
+motorola	MHQ2222	NPN quad		0		T2
+motorola	MHQ2369	quad			1		T2
+motorola	MHQ2484	NPN quad		0		T2
+motorola	MHQ2907A PNP quad		1		T2
+motorola	MHQ3251A quad			1		T2
+motorola	MHQ3467	quad			0		T2
+motorola	MHQ3546	PNP quad 12v		4		T2
+motorola	MHQ3799	PNP 60v			8  		T2
+motorola	MHQ6002	quad			1		T2
+motorola	MJ450	NPN 150w 40v		0		T2
+motorola	MJ802	NPN 200w 100v		1		T2
+motorola	MJ901	PNP Darlington 90w 80v	0		T2
+motorola	MJ921	power			2		T2
+motorola	MJ1001	NPN Darlington 90w 80v	1		T2
+motorola	MJ1200	power			2 		T2
+motorola	MJ1201	power			1		T2
+motorola	MJ2501	PNP Darlington 150w 80v	0		T2
+motorola	MJ4033	NPN Darlington 150w 60v	1		T2
+motorola	MJ4200				1		T2
+motorola	MJ4201				2		T2
+motorola	MJ4210				2		T2
+motorola	MJ4502	PNP Power 200w 100v	0		T2
+motorola	MJ6700	PNP Power 60w 60v	5		T2
+motorola	MJ6701	PNP 80w 60v		1 		T2
+motorola	MJE224	power			0		T3
+motorola	MJE234				3		T3 
+motorola	MJE340	NPN 20.8w 300v		0		T3
+motorola	MJE371	PNP 40v			8		T3
+motorola	MJE1093	PNP 70w 80v		14		T3
+motorola	MJE1103	power			8		T3
+motorola	MJE2361	NPN 30w 350v		10		T3
+motorola	MJE2955	PNP 90w 70v		7		T3
+motorola	MJE3055	NPN 90w 70v		11  		T3
+motorola	MM1551	NPN 30w 60v		0		T3
+motorola	MM1559	NPN 60w 65v		0		T3
+motorola	MM3007	NPN 120v		2		T3
+motorola	MM3008	NPN 120v		1		T3
+motorola	MM3009	NPN 180v		0		T3
+motorola	MM3012				11		T3
+motorola	MM4007	PNP 100v		14		T3
+motorola	MM4010	PNP audio		12		T3
+motorola	MMT3903	NPN 60v			0		T3
+motorola	MMT3905	PNP 40v			1		T3
+motorola	MMT3960A NPN 15v		0		T3
+motorola	MPS3702	PNP 40v			28		T3
+motorola	MPS3703	PNP 50v			30		T3
+motorola	MPS4250	PNP amp to-92		30		T3
+motorola	MPS5857-5 			20		T3
+motorola	MPS5858-5			37		T3
+motorola	MPS6518	PNP 40v			0		T3
+motorola	MPS6521	NPN 40v			42		T3
+motorola	MPS6523	PNP 25v			26		T3
+motorola	MPS6531	NPN 60v			20		T3
+motorola	MPS6566	NPN 60v			23		T3
+motorola	MPS6570	NPN 20v			10		T3
+motorola	MPS6571	NPN 20v			25		T3
+motorola	MPSA06	NPN 80v			19		T3
+motorola	MPSA09	NPN 50v			14		T3
+motorola	MPSA14	NPN Darlington 30v	0		T3
+motorola	MPSA18	NPN Low Noise Gain 	14		T3
+motorola	MPSA42	NPN High Volt 300v	15		T3
+motorola	MPSA43	NPN High Volt 200v	16		T3
+motorola	MPSA56	PNP Audio Amp 80v	12		T3
+motorola	MPSA66	PNP Darlington		24		T3
+motorola	MPSA92	PNP High Volt 300v	20		T3
+motorola	MPSA93	PNP High Volt 200v	22		T3
+motorola	MPSU01	NPN 8.0w 30v		15		T3
+motorola	MPSU02	NPN 6.0w 60v		25		T3
+motorola	MPSU03	NPN 8.0w 120v		15		T3
+motorola	MPSU04	NPN 8.0w 180v		15		T3
+motorola	MPSU06	NPN 5.0w 80v		3		T3
+motorola	MPSU07	NPN 1.0w 100v		15		T3
+motorola	MPSU10  NPN High Volt 300v	5 		T3
+motorola	MPSU45	NPN Darlington 40v	15		T3
+motorola	MPSU51	PNP 8.0w 30v		0		T3
+motorola	MPSU52	PNP 6.0w 60v		11		T3
+motorola	MPSU56	PNP 5.0w 80v		19		T3
+motorola	MPSU60	PNP High Volt 300v	17		T3
+motorola	MPSU95	PNP Darlington 40v	36		T3
+motorola	MRD150	NPN Silicon Photo	0		T3
+motorola	MRD210	NPN Photo Detector	1		T3
+motorola	MRD250	NPN Photo Detector	1		T3
+motorola	MRD500	100v Photo Diode	0		T3
+motorola	MRD510	100v Photo Diode	0		T3
+motorola	SE7001	NPN 150v		0		T3
+motorola	SE7002	NPN 120v		0		T3
+motorola	SE8040	NPN 30v			6		T3
+motorola	SE8540	PNP 30v			7		T3
+RCA		BDX34C	Darlington		9		T3
+texas inst	TIP24				1		T3
+RCA		TIP27				12		T3
+texas inst	TIP31A	NPN 40w 60v		0		T3
+texas inst	TIP32A	PNP 40w 60v		1		T3
+texas inst	TIP33A	NPN 80w 60v		1		T3
+texas isnt	TIP34A	PNP 80w 60v		0		T3
+texas isnt	TIP35A	NPN 90w 60v		4 - no bin
+texas inst	TIP36A	PNP 90w 60v		8 - no bin
+texas isnt	TIS75	N-Chan 25v fet		0		T3
+texas inst	TIX78	N-Chan 300v fet		0		T3
+siliconix	S75V12				0		T3
+siliconix	S75V22	Hi-Speed Power Periph	1		T3
+siliconix	VMP-11	MOS Power fet		0		T3
+siliconix	VN46AF	40v VMOS Power fet	1		T3
+siliconix	VN66AF	60v VMOS Power fet	2		T3
+siliconix	VN88AF	80v VMOS Power fet	0		T3
+siliconix	2N6658	fet			1		T3
+siliconix	VN33AK	VMOS Power		0		T3
+siliconix	VN35AK	VMOS Power		0		T3
+siliconix	VN99AK	VMOS Power		0		T3
+texas inst	XP31	Power			0		T3
+texas inst	XP32	Power			3          	T3
+western		1723-1005 NPN 100v 150w		1 		T3
+motorola	3-252				3 - no bin
+

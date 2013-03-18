@@ -1,0 +1,44 @@
+#!/bin/sh
+awk '
+function copyelement(c, fn)
+{
+	while (getline < fn) {
+		if (/^Element\(/) {
+			parse(substr($0, 9), fields);
+			print "Element(", fields[1], fields[2], "\"" chip[c] "\"", "\"" type[chip[c]] "\"", fields[5], fields[6], fields[7], fields[8], fields[9], ")";
+		}
+		else
+		if (/^Element\[/) print $0;
+		else print $0;
+	}
+}
+function stat(fn)
+{
+	if (system("[ -f " fn " ] ") == 0)
+		return(1);
+	else	return(0);
+}
+function parse(str, array)
+{
+	i=0; 
+	while ( match(str, /[ \t]*("[^"]*(""[^"]*)*")|[ \t]*[a-zA-Z0-9]+/) ) {
+		field = substr( str, 1, RLENGTH )
+    		array[++i] = field
+    		str = substr( str, RLENGTH + 1 )
+  	}
+}
+BEGIN	{ PCBDIR="/usr/share/pcb/pcblib-newlib/geda/"; }
+/^type/	{ type[$2] = $3; }
+/^chip/	{ chip[$2] = $3;
+	  if (!type[$3]) 
+		print("% undefined type ", $3) | "cat >&2" ;
+	}
+END	{ for (c in chip) {
+		fn = PCBDIR type[chip[c]] ".fp";
+		if (stat(fn))
+			copyelement(c, fn);
+		else
+			print("% undefined element ", type[chip[c]]) | "cat >&2" ;
+	  }
+	}
+' $*

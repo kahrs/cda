@@ -1,0 +1,68 @@
+#!/bin/sh
+
+echo "patching sam/unix.c"
+ed sam/unix.c << EOF
+/^dprint/,$ c
+dprint(char *fmt, int va_alist)
+va_dcl
+{
+	va_list args;
+	char buf[BLOCKSIZE];
+
+	va_start(args);
+	vsprintf(buf, fmt, args);
+	termwrite(buf);
+	va_end(args);
+}
+.
+w
+q
+EOF
+echo "patching libframe/misc.c"
+ed libframe/misc.c << EOF
+/^fprint/,/^}/c
+fprint(int fd, char *fmt, int va_alist)
+va_dcl
+{
+	va_list args;
+	char buf[2048];			/* pick reasonable blocksize */
+
+	va_start(args);
+	vsprintf(buf, fmt, args);
+	write(fd, buf, strlen(buf));
+	va_end(args);
+}
+.
+w
+q
+EOF
+echo "patching samterm/flayer.h"
+ed samterm/flayer.h << EOF
+/	Rune.*\*(\*textfn/s/ulong/unsigned long/
+w
+q
+EOF
+echo "patching sam/parse.h"
+ed sam/parse.h << EOF
+/	int.*(\*fn)/s/Cmd/struct Cmd/
+w
+q
+EOF
+echo "patching sam/sam.h"
+ed sam/sam.h << EOF
+/dprint/s/(.*)/()/
+w
+q
+EOF
+echo "patching include/libc.h"
+ed include/libc.h << EOF
+/fprint/s/(.*)/()/
+w
+q
+EOF
+echo "patching samterm/samterm.h"
+ed samterm/samterm.h << EOF
+/^Rune.*\*gettext/s/ulong/unsigned long/
+w
+q
+EOF

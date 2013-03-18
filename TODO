@@ -1,0 +1,4 @@
+- Get rid of compiler warnings
+- Make place work
+- Integrate espresso with cda (done once, why not do it again)
+- Convert netlist output to verilog

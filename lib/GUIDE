@@ -1,0 +1,19 @@
+4003.pin - Xilinx XC4003 pinout
+4005.pin - Xilinx CX4005 pinout
+84.pkg - PLCC84 pinout
+analog.g - analog parts for graw
+boards - board directory for fizz
+boards/GUIDE - has a description of every board
+gates.g - used by graw
+library.p- master pin library
+library.pkg - master fixx package library
+lookup/ - library for functional lookup
+mkfile.mw - sample multiwire mkfile
+mkfile - sample Plan9 mkfile
+pals.paddle - paddle input for xpal
+pkgs.cdl - packages for fizz
+slash.sed - removes slashes for global signals
+stock1125 - for historical purposes - center 1125 stock
+unisite.codes - used by unisite
+unisite.errors - error messages from the Unisite
+xpins - Xilinx

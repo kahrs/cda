@@ -1,0 +1,23 @@
+Layer(1 "front")
+(
+)
+Layer(2 "GND")
+(
+)
+Layer(3 "Vcc")
+(
+)
+Layer(4 "back")
+(
+)
+Layer(5 "keepout")
+(
+)
+Layer(6 "notes")
+(
+Layer(7 "unused")
+(
+)
+Layer(8 "unused")
+(
+)
